@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"log"
@@ -21,6 +22,7 @@ var (
 		"generate":    mkGenerate,
 		defaultTagret: mkTest,
 		"build":       mkBuild,
+		"deps":        mkDeps,
 	}
 )
 
@@ -47,7 +49,25 @@ func mkVersioner() {
 	build.WithEnv(func(e *gomk.Env) {
 		e.Set("GO111MODULE", "on")
 	}, func() {
-		build.WDir().Exec("go", "get", "-u", "git.fractalqb.de/fractalqb/pack/versioner")
+		build.WDir().Exec("go", "get", "-u",
+			"git.fractalqb.de/fractalqb/pack/versioner")
+	})
+}
+
+func mkDeps() {
+	build.WithEnv(func(e *gomk.Env) {
+		e.Set("GO111MODULE", "on")
+	}, func() {
+		_, err := exec.LookPath("modgraphviz")
+		if errors.Is(err, exec.ErrNotFound) {
+			build.WDir().Exec("go", "get", "-u",
+				"golang.org/x/exp/cmd/modgraphviz")
+		}
+		build.WDir().ExecPipe(
+			exec.Command("go", "mod", "graph"),
+			exec.Command("modgraphviz"),
+			exec.Command("dot", "-Tsvg", "-o", "depgraph.svg"),
+		)
 	})
 }
 
