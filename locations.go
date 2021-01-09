@@ -5,11 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"math"
-	"time"
-
-	"github.com/CmdrVasquess/stated/att"
 
 	"git.fractalqb.de/fractalqb/ggja"
+
+	"github.com/CmdrVasquess/stated/att"
 )
 
 type SysCoos [3]att.Float32
@@ -47,30 +46,39 @@ type Location interface {
 }
 
 type System struct {
-	Addr        uint64
-	Name        string
-	Coos        SysCoos
-	FirstAccess time.Time
-	LastAccess  time.Time
+	Addr uint64
+	Name string
+	Coos SysCoos
 }
 
 func NewSystem(addr uint64, name string, coos ...float32) *System {
-	res := &System{Addr: addr}
-	res.Set(name, coos...)
+	res, _ := (*System)(nil).Update(addr, name, coos...)
 	return res
 }
 
-func (s *System) Set(name string, coos ...float32) {
-	if name != "" {
+func (sys *System) Update(addr uint64, name string, coos ...float32) (*System, bool) {
+	if sys == nil || sys.Addr != addr {
+		res := &System{Addr: addr}
+		res.Set(name, coos...)
+		return res, true
+	}
+	chg := sys.Set(name, coos...)
+	return sys, chg
+}
+
+func (s *System) Set(name string, coos ...float32) (changed bool) {
+	if name != "" && s.Name != name {
 		s.Name = name
+		changed = true
 	}
 	l := len(coos)
 	if l > 3 {
 		l = 3
 	}
 	for l--; l >= 0; l-- {
-		s.Coos[l].Set(coos[l], 0)
+		changed = changed || s.Coos[l].Set(coos[l], 1) != 0
 	}
+	return changed
 }
 
 func (s *System) Same(name string, coos ...float32) bool {
@@ -96,12 +104,6 @@ func (s *System) ToMap(m *map[string]interface{}, setType bool) error {
 	if s.Coos.Valid() {
 		(*m)["Coos"] = &s.Coos
 	}
-	if !s.FirstAccess.IsZero() {
-		(*m)["FirstAccess"] = s.FirstAccess
-	}
-	if !s.LastAccess.IsZero() {
-		(*m)["LastAccess"] = s.LastAccess
-	}
 	if setType {
 		(*m)[jsonTypeTag] = LocTypeSystem
 	}
@@ -123,26 +125,6 @@ func (s *System) FromMap(m map[string]interface{}) (err error) {
 		s.Coos[0] = nan32
 		s.Coos[1] = nan32
 		s.Coos[2] = nan32
-	}
-	if ts := obj.Str("FirstAccess", ""); ts == "" {
-		s.FirstAccess = time.Time{}
-	} else {
-		data := []byte{'"'}
-		data = append(data, []byte(ts)...)
-		data = append(data, '"')
-		if err := json.Unmarshal(data, &s.FirstAccess); err != nil {
-			return err
-		}
-	}
-	if ts := obj.Str("LastAccess", ""); ts == "" {
-		s.LastAccess = time.Time{}
-	} else {
-		data := []byte{'"'}
-		data = append(data, []byte(ts)...)
-		data = append(data, '"')
-		if err := json.Unmarshal(data, &s.LastAccess); err != nil {
-			return err
-		}
 	}
 	return nil
 }

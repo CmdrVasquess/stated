@@ -10,23 +10,25 @@ func init() {
 	evtHdlrs[journal.SupercruiseExitEvent.String()] = ehSupercruiseExit
 }
 
-func ehSupercruiseExit(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehSupercruiseExit(ed *EDState, e events.Event) (chg att.Change) {
+	ed.MustCommander(journal.SellShipOnRebuyEvent.String())
 	evt := e.(*journal.SupercruiseExit)
-	err = ed.WrLocked(func() error {
-		if ed.Loc.Location == nil {
-			return nil
-		}
+	must(ed.WrLocked(func() error {
+		sys, _ := ed.Loc.System().Update(
+			evt.SystemAddress,
+			evt.StarSystem,
+		)
 		if evt.BodyType != "Station" {
+			ed.Loc.Location = sys
 			return nil
 		}
-		sys := ed.Loc.System()
 		port := &Port{
 			Sys:  sys,
 			Name: evt.Body,
 		}
 		ed.Loc.Location = port
-		chg = ChgLocation
+		chg |= ChgLocation
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

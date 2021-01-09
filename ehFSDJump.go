@@ -10,24 +10,22 @@ func init() {
 	evtHdlrs[journal.FSDJumpEvent.String()] = ehFSDJump
 }
 
-func ehFSDJump(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehFSDJump(ed *EDState, e events.Event) (chg att.Change) {
+	cmdr := ed.MustCommander(journal.FSDJumpEvent.String())
 	evt := e.(*journal.FSDJump)
 	chg = ChgSystem
-	sys := ed.Galaxy.EdgxSystem(
+	sys := NewSystem(
 		evt.SystemAddress,
 		evt.StarSystem,
-		evt.StarPos[:],
-		evt.Time,
+		evt.StarPos[:]...,
 	)
-	err = ed.WrLocked(func() error {
-		ed.JumpHist.Jump(evt.SystemAddress, evt.Time)
+	must(ed.WrLocked(func() error {
 		ed.Loc.Location = sys
-		cmdr := ed.Cmdr
 		if cmdr.inShip != nil && evt.JumpDist > float32(cmdr.inShip.MaxJump) {
 			chg |= cmdr.inShip.MaxJump.Set(evt.JumpDist, ChgShip)
 		}
 		// TODO be more precise
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

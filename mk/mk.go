@@ -1,15 +1,14 @@
 package main
 
 import (
-	"errors"
 	"flag"
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"sort"
 
 	"git.fractalqb.de/fractalqb/gomk"
+	"git.fractalqb.de/fractalqb/gomk/task"
 )
 
 const (
@@ -22,12 +21,12 @@ var (
 		"generate":    mkGenerate,
 		defaultTagret: mkTest,
 		"build":       mkBuild,
-		"deps":        mkDeps,
+		"deps":        func() { task.DepsGraph(build) },
 	}
 )
 
 func mkGenerate() {
-	mkVersioner()
+	task.GetVersioner(build)
 	build.WDir().Exec("go", "generate", "./...")
 }
 
@@ -38,37 +37,8 @@ func mkTest() {
 
 func mkBuild() {
 	mkGenerate()
-	build.WDir().Exec("go", "build", "--trimpath", "./...")
-}
-
-func mkVersioner() {
-	_, err := exec.LookPath("versioner")
-	if err == nil {
-		return
-	}
-	build.WithEnv(func(e *gomk.Env) {
-		e.Set("GO111MODULE", "on")
-	}, func() {
-		build.WDir().Exec("go", "get", "-u",
-			"git.fractalqb.de/fractalqb/pack/versioner")
-	})
-}
-
-func mkDeps() {
-	build.WithEnv(func(e *gomk.Env) {
-		e.Set("GO111MODULE", "on")
-	}, func() {
-		_, err := exec.LookPath("modgraphviz")
-		if errors.Is(err, exec.ErrNotFound) {
-			build.WDir().Exec("go", "get", "-u",
-				"golang.org/x/exp/cmd/modgraphviz")
-		}
-		build.WDir().ExecPipe(
-			exec.Command("go", "mod", "graph"),
-			exec.Command("modgraphviz"),
-			exec.Command("dot", "-Tsvg", "-o", "depgraph.svg"),
-		)
-	})
+	build.WDir().Cd("tools", "newjournalevent").Exec("go", "build", "--trimpath")
+	build.WDir().Cd("examples", "netstated").Exec("go", "build", "--trimpath")
 }
 
 func usage() {

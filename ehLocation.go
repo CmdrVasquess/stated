@@ -10,13 +10,13 @@ func init() {
 	evtHdlrs[journal.LocationEvent.String()] = ehLocation
 }
 
-func ehLocation(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehLocation(ed *EDState, e events.Event) (chg att.Change) {
+	ed.MustCommander(journal.LocationEvent.String())
 	evt := e.(*journal.Location)
-	sys := ed.Galaxy.EdgxSystem(
+	sys := NewSystem(
 		evt.SystemAddress,
 		evt.StarSystem,
-		evt.StarPos[:],
-		evt.Time,
+		evt.StarPos[:]...,
 	)
 	var loc Location
 	switch {
@@ -30,10 +30,10 @@ func ehLocation(ed *EDState, e events.Event) (chg att.Change, err error) {
 	default:
 		loc = sys
 	}
-	err = ed.WrLocked(func() error {
+	must(ed.WrLocked(func() error {
 		ed.Loc.Location = loc
 		chg = ChgLocation
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

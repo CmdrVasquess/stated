@@ -10,9 +10,10 @@ func init() {
 	evtHdlrs[journal.UndockedEvent.String()] = ehUndocked
 }
 
-func ehUndocked(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehUndocked(ed *EDState, e events.Event) (chg att.Change) {
+	ed.MustCommander(journal.UndockedEvent.String())
 	evt := e.(*journal.Undocked)
-	err = ed.WrLocked(func() error {
+	must(ed.WrLocked(func() error {
 		if port := ed.Loc.Port(); port == nil {
 			port := &Port{
 				Name:   evt.StationName,
@@ -28,8 +29,8 @@ func ehUndocked(ed *EDState, e events.Event) (chg att.Change, err error) {
 				port.Sys = nil
 			}
 		}
-		chg = ChgLocation
+		chg |= ChgLocation
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

@@ -3,9 +3,13 @@ package stated
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 	"sync"
+
+	"git.fractalqb.de/fractalqb/sllm"
 
 	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
@@ -14,22 +18,21 @@ import (
 
 //go:generate versioner -pkg stated -bno build_no VERSION version.go
 
-type HandlerFunc func(*EDState, events.Event) (att.Change, error)
+type HandlerFunc func(*EDState, events.Event) att.Change
 
 var evtHdlrs = make(map[string]HandlerFunc)
 
 const (
 	ChgGame att.Change = (1 << iota)
 	ChgCommander
-	ChgLocation
 	ChgSystem
+	ChgLocation
 	ChgShip
+
+	ChgEND
 )
 
 func SaveJSON(file string, data interface{}, logTmpl string) error {
-	if !strings.HasSuffix(file, ".json") {
-		file = file + ".json"
-	}
 	if logTmpl != "" {
 		log.Infoa(logTmpl, file)
 	}
@@ -69,49 +72,68 @@ func LoadJSON(file string, allowEmpty bool, into interface{}, logTmpl string) er
 }
 
 type Config struct {
-	Galaxy          Galaxy
 	CmdrFile        func(fid, name string) string
 	ShutdownLogsOut bool
 }
 
-type EDState struct {
-	Config
+type CmdrFile struct {
+	Dir    string
+	MkDirs bool
+}
 
-	GoEDXversion struct{ Major, Minor, Patch int }
-	// Is modified w/o using Lock!
-	EDVersion string
-	Beta      bool
-	Language  string
+func (cf CmdrFile) Filename(fid, _ string) string {
+	if cf.MkDirs {
+		if _, err := os.Stat(cf.Dir); os.IsNotExist(err) {
+			os.MkdirAll(cf.Dir, 0666)
+		}
+	}
+	file := fmt.Sprintf("EDstate-%s.json", fid)
+	return filepath.Join(cf.Dir, file)
+}
+
+type ChangeEvent struct {
+	Change att.Change
+	Event  events.Event
+}
+
+type EDState struct {
+	Config        `json:"-"`
+	StatEDversion struct{ Major, Minor, Patch int }
+
+	EDVersion string `json:"-"`
+	Beta      bool   `json:"-"`
+	Language  string `json:"-"`
 	L10n      struct {
 		Lang   string
 		Region string
-	}
-	Cmdr     *Commander `json:"-"`
-	Loc      JSONLocation
-	Ships    map[int]*Ship `json:"-"`
-	JumpHist JumpHist      `json:"-"`
+	} `json:"-"`
+	Cmdr  *Commander
+	Loc   JSONLocation
+	Ships map[int]*Ship
+	Mats  Materials
+
+	Notify []chan<- ChangeEvent `json:"-"`
 
 	lock sync.RWMutex
 }
 
-const msgNoCmdr = "no current commander"
-
-func NewEDState() *EDState {
-	res := &EDState{}
-	res.GoEDXversion.Major = Major
-	res.GoEDXversion.Minor = Minor
-	res.GoEDXversion.Patch = Patch
+func NewEDState(cfg *Config) *EDState {
+	res := &EDState{
+		Ships: make(map[int]*Ship),
+	}
+	if cfg != nil {
+		res.Config = *cfg
+	}
+	res.StatEDversion.Major = Major
+	res.StatEDversion.Minor = Minor
+	res.StatEDversion.Patch = Patch
 	return res
 }
 
-func (ed *EDState) ResetCmdr() {
+func (ed *EDState) Reset() {
 	ed.Cmdr = nil
 	ed.Loc.Location = nil
 	ed.Ships = make(map[int]*Ship)
-	ed.JumpHist = JumpHist{
-		Jumps: nil,
-		Last:  0,
-	}
 }
 
 func (es *EDState) SetEDVersion(v string) {
@@ -144,39 +166,44 @@ func (es *EDState) SetLanguage(lang string) {
 	es.L10n.Lang, es.L10n.Region = ParseEDLang(lang)
 }
 
-func (ed *EDState) SwitchCommander(fid string, name string) {
-	if ed.Cmdr != nil {
-		file := ed.CmdrFile(fid, name)
-		if err := ed.Cmdr.Save(file); err != nil {
-			log.Errore(err)
-		}
+func (ed *EDState) SwitchCommander(fid string, name string) error {
+	if err := ed.Save(); err != nil {
+		log.Errore(err)
 	}
-	ed.ResetCmdr()
+	ed.Reset()
 	if fid == "" {
-		return
+		return nil
 	}
 	if name == "" {
-		log.Errora("Empty commander name for `FID`", fid)
-		return
-	}
-	ed.Cmdr = new(Commander)
-	err := LoadJSON(ed.CmdrFile(fid, name), true, ed.Cmdr, "load commander from `file`")
-	if err != nil {
+		err := sllm.Error("empty commander name for `FID`", fid)
 		log.Errore(err)
-		return
+		return err
 	}
-	ed.Cmdr.Name.Set(name, 0)
-	if ed.Cmdr.FID == "" {
-		ed.Cmdr.FID = fid
-		return
+	if ed.CmdrFile != nil {
+		err := LoadJSON(ed.CmdrFile(fid, name), true, ed, "load ED state from `file`")
+		if err != nil {
+			log.Errore(err)
+			return err
+		}
 	}
-	ed.Cmdr.FID = fid
-	// TODO Load ships and jump-hist
+	if ed.Cmdr == nil {
+		ed.Cmdr = &Commander{
+			FID:  fid,
+			Name: att.String(name),
+		}
+	} else if ed.Cmdr.FID != fid {
+		err := sllm.Error("load `file with FID` for `FID`", ed.Cmdr.FID, fid)
+		log.Errore(err)
+		return err
+	} else {
+		ed.Cmdr.Name.Set(name, 0)
+	}
+	return nil
 }
 
-func (ed *EDState) MustCommander() *Commander {
+func (ed *EDState) MustCommander(where string) *Commander {
 	if ed.Cmdr == nil {
-		panic(msgNoCmdr)
+		panic(fmt.Errorf("no current commander in '%s'", where))
 	}
 	return ed.Cmdr
 }
@@ -193,13 +220,12 @@ func (es *EDState) WrLocked(do func() error) error {
 	return do()
 }
 
-func (ed *EDState) Save(file string, cmdrFile string) error {
-	err := SaveJSON(file, ed, "save state to `file`")
-	if cmdrFile != "" && ed.Cmdr != nil && ed.Cmdr.FID != "" {
-		if err := ed.Cmdr.Save(cmdrFile); err != nil {
-			log.Errore(err)
-		}
+func (ed *EDState) Save() error {
+	if ed.Cmdr == nil || ed.CmdrFile == nil {
+		return nil
 	}
+	file := ed.CmdrFile(ed.Cmdr.FID, ed.Cmdr.Name.Get())
+	err := SaveJSON(file, ed, "save ED state to `file`")
 	return err
 }
 
@@ -208,9 +234,6 @@ func (ed *EDState) Load(file string) error {
 }
 
 func (ed *EDState) FindShip(id int) *Ship {
-	if id <= 0 || id >= len(ed.Ships) {
-		return nil
-	}
 	return ed.Ships[id]
 }
 
@@ -223,33 +246,46 @@ func (ed *EDState) GetShip(id int) *Ship {
 	return res
 }
 
-func (ed *EDState) Journal(e watched.JounalEvent) error {
+func (ed *EDState) OnJournalEvent(e watched.JounalEvent) (err error) {
+	defer func() {
+		if p := recover(); p != nil {
+			switch x := p.(type) {
+			case error:
+				err = x
+			case string:
+				err = errors.New(x)
+			default:
+				err = fmt.Errorf("%+v", x)
+			}
+		}
+	}()
 	event, err := e.Event.PeekEvent()
 	if err != nil {
 		return err
 	}
 	etype := events.EventType(event)
 	if etype == nil {
-		log.Debuga("unknown journal `event`", event)
+		log.Debuga("unknown `journal event`", event)
 		return nil
 	}
 	eh := evtHdlrs[event]
 	if eh == nil {
-		log.Debuga("no handler for `event`", event)
+		log.Debuga("no handler for `journal event`", event)
 		return nil
 	}
 	evt := etype.New()
 	if err = json.Unmarshal(e.Event, evt); err != nil {
 		return err
 	}
-	_, err = eh(ed, evt)
+	chg := eh(ed, evt)
+	ed.ntfChg(chg, evt)
 	return err
 }
 
-func (ed *EDState) Status(e watched.StatusEvent) error {
+func (ed *EDState) OnStatusEvent(e watched.StatusEvent) error {
 	etype := events.EventType(e.Type.String())
 	if etype == nil {
-		log.Debuga("unknown status `event`", etype)
+		log.Debuga("unknown `status event`", e.Type.String())
 		return nil
 	}
 	// TODO status event
@@ -257,6 +293,23 @@ func (ed *EDState) Status(e watched.StatusEvent) error {
 }
 
 func (ed *EDState) Close() error {
-	// TODO status event
-	return errors.New("NYI: EDState close")
+	return ed.Save()
+}
+
+func (ed *EDState) ntfChg(chg att.Change, e events.Event) {
+	ce := ChangeEvent{chg, e}
+	for i, c := range ed.Notify {
+		select {
+		case c <- ce:
+			log.Tracea("sent `change` to `listener`", chg, i)
+		default:
+			log.Tracea("drop `change` for blocking `listener`", chg, i)
+		}
+	}
+}
+
+func must(err error) {
+	if err != nil {
+		panic(err)
+	}
 }

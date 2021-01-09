@@ -1,50 +1,26 @@
 package stated
 
 import (
-	"os"
-	"path/filepath"
+	"encoding/json"
 
 	"github.com/CmdrVasquess/stated/att"
 )
 
-type RawMatStats struct {
-	Min, Max float32
-	Sum      float64
-	Count    int
-}
-
 type Commander struct {
-	FID         string
-	Name        att.String
-	Ranks       Ranks
-	ShipID      att.Int
-	Mats        Materials
-	inShip      *Ship
-	RawMatStats map[string]*RawMatStats
+	FID    string
+	Name   att.String
+	Ranks  Ranks
+	ShipID att.Int
+	inShip *Ship
 }
 
 func NewCommander(fid string) *Commander {
-	return &Commander{
-		FID:         fid,
-		RawMatStats: make(map[string]*RawMatStats),
-	}
-}
-
-func (cmdr *Commander) Save(file string) error {
-	dir := filepath.Dir(file)
-	if _, err := os.Stat(dir); os.IsNotExist(err) {
-		log.Infoa("create `commander` `dir`", cmdr.Name, dir)
-		if err := os.Mkdir(dir, 0777); err != nil {
-			log.Errore(err)
-		}
-	}
-	log.Infoa("save `commander` with `fid` to `file`", cmdr.Name, cmdr.FID, file)
-	return SaveJSON(file, cmdr, "")
+	return &Commander{FID: fid}
 }
 
 type Rank struct {
-	Level    int
-	Progress int
+	Level    int `json:"L"`
+	Progress int `json:"P"`
 }
 
 //go:generate stringer -type RankType
@@ -62,3 +38,23 @@ const (
 )
 
 type Ranks [RanksNum]Rank
+
+func (rs Ranks) MarshalJSON() ([]byte, error) {
+	m := make(map[string]Rank)
+	for r, s := range rs {
+		m[RankType(r).String()] = s
+	}
+	return json.Marshal(m)
+}
+
+func (rs *Ranks) UnmarshalJSON(raw []byte) error {
+	m := make(map[string]Rank)
+	err := json.Unmarshal(raw, &m)
+	if err != nil {
+		return err
+	}
+	for r := range rs {
+		rs[r] = m[RankType(r).String()]
+	}
+	return nil
+}

@@ -10,14 +10,17 @@ func init() {
 	evtHdlrs[journal.SupercruiseEntryEvent.String()] = ehSupercruiseEntry
 }
 
-func ehSupercruiseEntry(ed *EDState, _ events.Event) (chg att.Change, err error) {
-	err = ed.WrLocked(func() error {
-		if ed.Loc.Location == nil {
-			return nil
-		}
-		ed.Loc.Location = ed.Loc.Location.System()
-		chg = ChgLocation
+func ehSupercruiseEntry(ed *EDState, e events.Event) (chg att.Change) {
+	ed.MustCommander(journal.SupercruiseEntryEvent.String())
+	evt := e.(*journal.SupercruiseEntry)
+	must(ed.WrLocked(func() error {
+		sys, _ := ed.Loc.System().Update(
+			evt.SystemAddress,
+			evt.StarSystem,
+		)
+		ed.Loc.Location = sys
+		chg |= ChgLocation
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

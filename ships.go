@@ -16,14 +16,3 @@ type Ship struct {
 	Berth    *Port      `json:",omitempty"`
 	Sold     *time.Time `json:",omitempty"`
 }
-
-type Materials struct {
-	Raw map[string]*Material
-	Man map[string]*Material
-	Enc map[string]*Material
-}
-
-type Material struct {
-	Stock  int
-	Demand int
-}

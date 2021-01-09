@@ -10,19 +10,21 @@ func init() {
 	evtHdlrs[journal.DockedEvent.String()] = ehDocked
 }
 
-func ehDocked(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehDocked(ed *EDState, e events.Event) (chg att.Change) {
+	ed.MustCommander(journal.DockedEvent.String())
 	evt := e.(*journal.Docked)
-	sys := ed.Galaxy.EdgxSystem(evt.SystemAddress, evt.StarSystem, nil, evt.Time)
-	loc := &Port{
-		Sys:    sys,
-		Name:   evt.StationName,
-		Type:   evt.StationType,
-		Docked: true,
-	}
-	err = ed.WrLocked(func() error {
+	must(ed.WrLocked(func() error {
+		sys := ed.Loc.System()
+		sys, _ = sys.Update(evt.SystemAddress, evt.StarSystem)
+		loc := &Port{
+			Sys:    sys,
+			Name:   evt.StationName,
+			Type:   evt.StationType,
+			Docked: true,
+		}
 		ed.Loc = JSONLocation{loc}
-		chg = ChgLocation
+		chg |= ChgLocation
 		return nil
-	})
-	return chg, err
+	}))
+	return chg
 }

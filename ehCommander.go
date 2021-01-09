@@ -10,11 +10,10 @@ func init() {
 	evtHdlrs[journal.CommanderEvent.String()] = ehCommander
 }
 
-func ehCommander(ed *EDState, e events.Event) (chg att.Change, err error) {
+func ehCommander(ed *EDState, e events.Event) att.Change {
 	evt := e.(*journal.Commander)
-	err = ed.WrLocked(func() error {
-		ed.SwitchCommander(evt.FID, evt.Name)
-		return nil
-	})
-	return chg, err
+	must(ed.WrLocked(func() error {
+		return ed.SwitchCommander(evt.FID, evt.Name)
+	}))
+	return ChgCommander // TODO changed more?
 }

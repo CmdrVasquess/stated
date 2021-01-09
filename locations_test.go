@@ -34,9 +34,7 @@ func ExampleSystem() {
 	//     3,
 	//     2,
 	//     1
-	//   ],
-	//   "FirstAccess": "0001-01-01T00:00:00Z",
-	//   "LastAccess": "0001-01-01T00:00:00Z"
+	//   ]
 	// }
 	// {
 	//   "@type": "system",
@@ -56,9 +54,7 @@ func ExampleSystem() {
 	//     3,
 	//     2,
 	//     1
-	//   ],
-	//   "FirstAccess": "0001-01-01T00:00:00Z",
-	//   "LastAccess": "0001-01-01T00:00:00Z"
+	//   ]
 	// }
 }
 
@@ -95,9 +91,7 @@ func ExamplePort() {
 	//       3,
 	//       2,
 	//       1
-	//     ],
-	//     "FirstAccess": "0001-01-01T00:00:00Z",
-	//     "LastAccess": "0001-01-01T00:00:00Z"
+	//     ]
 	//   },
 	//   "Name": "Hafen",
 	//   "Type": "Orbis",
@@ -127,9 +121,7 @@ func ExamplePort() {
 	//       3,
 	//       2,
 	//       1
-	//     ],
-	//     "FirstAccess": "0001-01-01T00:00:00Z",
-	//     "LastAccess": "0001-01-01T00:00:00Z"
+	//     ]
 	//   },
 	//   "Name": "Hafen",
 	//   "Type": "Orbis",
