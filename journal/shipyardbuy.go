@@ -19,5 +19,5 @@ type ShipyardBuy struct {
 func (_ *ShipyardBuy) EventType() events.Type { return ShipyardBuyEvent }
 
 func init() {
-	events.RegisterType(string(ShipyardBuyEvent), ShipyardBuyEvent)
+	events.MustRegisterType(string(ShipyardBuyEvent), ShipyardBuyEvent)
 }

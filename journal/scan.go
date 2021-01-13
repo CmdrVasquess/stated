@@ -47,5 +47,5 @@ type Scan struct {
 func (_ *Scan) EventType() events.Type { return ScanEvent }
 
 func init() {
-	events.RegisterType(string(ScanEvent), ScanEvent)
+	events.MustRegisterType(string(ScanEvent), ScanEvent)
 }

@@ -18,5 +18,5 @@ type Fileheader struct {
 func (_ *Fileheader) EventType() events.Type { return FileheaderEvent }
 
 func init() {
-	events.RegisterType(string(FileheaderEvent), FileheaderEvent)
+	events.MustRegisterType(string(FileheaderEvent), FileheaderEvent)
 }

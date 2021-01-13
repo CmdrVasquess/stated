@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.ShutdownEvent.String()] = ehShutdown
+	evtHdlrs[journal.ShutdownEvent.String()] = jehShutdown
 }
 
-func ehShutdown(ed *EDState, e events.Event) (chg att.Change) {
+func jehShutdown(ed *EDState, e events.Event) (chg att.Change) {
 	must(ed.WrLocked(func() (err error) {
 		if ed.ShutdownLogsOut {
 			ed.SwitchCommander("", "")
@@ -19,5 +19,5 @@ func ehShutdown(ed *EDState, e events.Event) (chg att.Change) {
 		}
 		return err
 	}))
-	return 0 // TODO what if there was a commander
+	return ChgGame
 }

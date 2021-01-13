@@ -22,5 +22,5 @@ type Rank struct {
 func (_ *Rank) EventType() events.Type { return RankEvent }
 
 func init() {
-	events.RegisterType(string(RankEvent), RankEvent)
+	events.MustRegisterType(string(RankEvent), RankEvent)
 }

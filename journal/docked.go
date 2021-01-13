@@ -21,5 +21,5 @@ type Docked struct {
 func (_ *Docked) EventType() events.Type { return DockedEvent }
 
 func init() {
-	events.RegisterType(string(DockedEvent), DockedEvent)
+	events.MustRegisterType(string(DockedEvent), DockedEvent)
 }

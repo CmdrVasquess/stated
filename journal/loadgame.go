@@ -19,5 +19,5 @@ type LoadGame struct {
 func (_ *LoadGame) EventType() events.Type { return LoadGameEvent }
 
 func init() {
-	events.RegisterType(string(LoadGameEvent), LoadGameEvent)
+	events.MustRegisterType(string(LoadGameEvent), LoadGameEvent)
 }

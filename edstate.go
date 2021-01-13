@@ -179,6 +179,9 @@ func (ed *EDState) SwitchCommander(fid string, name string) error {
 		log.Errore(err)
 		return err
 	}
+	if ed.Cmdr != nil && ed.Cmdr.FID == fid {
+		log.Tracea("skip switching to same `commander` with `FID`", name, fid)
+	}
 	if ed.CmdrFile != nil {
 		err := LoadJSON(ed.CmdrFile(fid, name), true, ed, "load ED state from `file`")
 		if err != nil {
@@ -203,7 +206,7 @@ func (ed *EDState) SwitchCommander(fid string, name string) error {
 
 func (ed *EDState) MustCommander(where string) *Commander {
 	if ed.Cmdr == nil {
-		panic(fmt.Errorf("no current commander in '%s'", where))
+		log.Panicf("no current commander in '%s'", where)
 	}
 	return ed.Cmdr
 }

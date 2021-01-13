@@ -20,5 +20,5 @@ type FSSDiscoveryScan struct {
 func (_ *FSSDiscoveryScan) EventType() events.Type { return FSSDiscoveryScanEvent }
 
 func init() {
-	events.RegisterType(string(FSSDiscoveryScanEvent), FSSDiscoveryScanEvent)
+	events.MustRegisterType(string(FSSDiscoveryScanEvent), FSSDiscoveryScanEvent)
 }

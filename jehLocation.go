@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.LocationEvent.String()] = ehLocation
+	evtHdlrs[journal.LocationEvent.String()] = jehLocation
 }
 
-func ehLocation(ed *EDState, e events.Event) (chg att.Change) {
+func jehLocation(ed *EDState, e events.Event) (chg att.Change) {
 	ed.MustCommander(journal.LocationEvent.String())
 	evt := e.(*journal.Location)
 	sys := NewSystem(

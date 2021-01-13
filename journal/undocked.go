@@ -18,5 +18,5 @@ type Undocked struct {
 func (_ *Undocked) EventType() events.Type { return UndockedEvent }
 
 func init() {
-	events.RegisterType(string(UndockedEvent), UndockedEvent)
+	events.MustRegisterType(string(UndockedEvent), UndockedEvent)
 }

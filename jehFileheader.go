@@ -7,15 +7,15 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.FileheaderEvent.String()] = ehFileheader
+	evtHdlrs[journal.FileheaderEvent.String()] = jehFileheader
 }
 
-func ehFileheader(ed *EDState, e events.Event) att.Change {
+func jehFileheader(ed *EDState, e events.Event) att.Change {
 	evt := e.(*journal.Fileheader)
 	must(ed.WrLocked(func() error {
 		ed.SetEDVersion(evt.GameVersion)
 		ed.SetLanguage(evt.Language)
 		return nil
 	}))
-	return 0
+	return ChgGame
 }

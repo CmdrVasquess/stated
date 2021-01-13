@@ -22,5 +22,5 @@ type Loadout struct {
 func (_ *Loadout) EventType() events.Type { return LoadoutEvent }
 
 func init() {
-	events.RegisterType(string(LoadoutEvent), LoadoutEvent)
+	events.MustRegisterType(string(LoadoutEvent), LoadoutEvent)
 }

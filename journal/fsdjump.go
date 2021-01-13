@@ -29,5 +29,5 @@ type FSDJump struct {
 func (_ *FSDJump) EventType() events.Type { return FSDJumpEvent }
 
 func init() {
-	events.RegisterType(string(FSDJumpEvent), FSDJumpEvent)
+	events.MustRegisterType(string(FSDJumpEvent), FSDJumpEvent)
 }

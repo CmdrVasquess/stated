@@ -18,5 +18,5 @@ type ShipTargeted struct {
 func (_ *ShipTargeted) EventType() events.Type { return ShipTargetedEvent }
 
 func init() {
-	events.RegisterType(string(ShipTargetedEvent), ShipTargetedEvent)
+	events.MustRegisterType(string(ShipTargetedEvent), ShipTargetedEvent)
 }

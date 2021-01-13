@@ -20,5 +20,5 @@ type ApproachBody struct {
 func (_ *ApproachBody) EventType() events.Type { return ApproachBodyEvent }
 
 func init() {
-	events.RegisterType(string(ApproachBodyEvent), ApproachBodyEvent)
+	events.MustRegisterType(string(ApproachBodyEvent), ApproachBodyEvent)
 }

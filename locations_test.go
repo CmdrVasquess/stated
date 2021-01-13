@@ -8,18 +8,14 @@ import (
 )
 
 func ExampleSystem() {
-	s := System{
-		Addr: 4711,
-		Name: "Köln",
-		Coos: ToSysCoos(3, 2, 1),
-	}
+	s := NewSystem(4711, "Köln", 3, 2, 1)
 	var sb bytes.Buffer
 	enc := json.NewEncoder(&sb)
 	enc.SetIndent("", "  ")
-	enc.Encode(&s)
+	enc.Encode(s)
 	os.Stdout.Write(sb.Bytes())
 	sb.Reset()
-	enc.Encode(JSONLocation{&s})
+	enc.Encode(JSONLocation{s})
 	os.Stdout.Write(sb.Bytes())
 	var jloc JSONLocation
 	fmt.Println(json.Unmarshal(sb.Bytes(), &jloc))

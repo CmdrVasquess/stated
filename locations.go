@@ -76,7 +76,7 @@ func (s *System) Set(name string, coos ...float32) (changed bool) {
 		l = 3
 	}
 	for l--; l >= 0; l-- {
-		changed = changed || s.Coos[l].Set(coos[l], 1) != 0
+		changed = s.Coos[l].Set(coos[l], 1) != 0 || changed
 	}
 	return changed
 }

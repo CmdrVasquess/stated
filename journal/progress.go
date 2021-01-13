@@ -22,5 +22,5 @@ type Progress struct {
 func (_ *Progress) EventType() events.Type { return ProgressEvent }
 
 func init() {
-	events.RegisterType(string(ProgressEvent), ProgressEvent)
+	events.MustRegisterType(string(ProgressEvent), ProgressEvent)
 }

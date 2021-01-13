@@ -18,5 +18,5 @@ type SupercruiseEntry struct {
 func (_ *SupercruiseEntry) EventType() events.Type { return SupercruiseEntryEvent }
 
 func init() {
-	events.RegisterType(string(SupercruiseEntryEvent), SupercruiseEntryEvent)
+	events.MustRegisterType(string(SupercruiseEntryEvent), SupercruiseEntryEvent)
 }

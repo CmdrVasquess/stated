@@ -6,7 +6,7 @@ import (
 
 type navrouteT string
 
-const NavRouteEvent = statusT(watched.StatNavRouteName)
+const NavRouteEvent = navrouteT(watched.StatNavRouteName)
 
 func (t navrouteT) New() Event     { return new(NavRoute) }
 func (t navrouteT) String() string { return string(t) }
@@ -26,5 +26,5 @@ type NavRoute struct {
 func (_ *NavRoute) EventType() Type { return NavRouteEvent }
 
 func init() {
-	RegisterType(string(StatusEvent), StatusEvent)
+	MustRegisterType(NavRouteEvent.String(), NavRouteEvent)
 }

@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.SupercruiseEntryEvent.String()] = ehSupercruiseEntry
+	evtHdlrs[journal.SupercruiseEntryEvent.String()] = jehSupercruiseEntry
 }
 
-func ehSupercruiseEntry(ed *EDState, e events.Event) (chg att.Change) {
+func jehSupercruiseEntry(ed *EDState, e events.Event) (chg att.Change) {
 	ed.MustCommander(journal.SupercruiseEntryEvent.String())
 	evt := e.(*journal.SupercruiseEntry)
 	must(ed.WrLocked(func() error {

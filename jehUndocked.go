@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.UndockedEvent.String()] = ehUndocked
+	evtHdlrs[journal.UndockedEvent.String()] = jehUndocked
 }
 
-func ehUndocked(ed *EDState, e events.Event) (chg att.Change) {
+func jehUndocked(ed *EDState, e events.Event) (chg att.Change) {
 	ed.MustCommander(journal.UndockedEvent.String())
 	evt := e.(*journal.Undocked)
 	must(ed.WrLocked(func() error {

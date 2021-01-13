@@ -1,8 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"os"
 
 	"git.fractalqb.de/fractalqb/c4hgol"
 	"git.fractalqb.de/fractalqb/qbsllm"
@@ -38,13 +40,22 @@ func printChanges() {
 			}
 			switch c {
 			case stated.ChgGame:
-				fmt.Printf(" - game: %s\n", edstate.EDVersion)
+				fmt.Printf(" - game : %s beta: %t %s (%s-%s)\n",
+					edstate.EDVersion,
+					edstate.Beta,
+					edstate.Language,
+					edstate.L10n.Lang,
+					edstate.L10n.Region,
+				)
 			case stated.ChgCommander:
-				fmt.Printf(" - commander: %+v\n", edstate.Cmdr)
+				fmt.Print(" - commander: ")
+				json.NewEncoder(os.Stdout).Encode(edstate.Cmdr)
 			case stated.ChgSystem:
-				fmt.Printf(" - system: %+v\n", edstate.Loc.Location)
+				fmt.Printf(" - system %T: ", edstate.Loc.Location)
+				json.NewEncoder(os.Stdout).Encode(edstate.Loc.Location)
 			case stated.ChgLocation:
-				fmt.Printf(" - location: %+v\n", edstate.Loc.Location)
+				fmt.Printf(" - location %T: ", edstate.Loc.Location)
+				json.NewEncoder(os.Stdout).Encode(edstate.Loc.Location)
 			default:
 				fmt.Printf(" - chg#%d\n", c)
 			}

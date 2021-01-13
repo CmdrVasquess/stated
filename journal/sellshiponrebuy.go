@@ -18,5 +18,5 @@ type SellShipOnRebuy struct {
 func (_ *SellShipOnRebuy) EventType() events.Type { return SellShipOnRebuyEvent }
 
 func init() {
-	events.RegisterType(string(SellShipOnRebuyEvent), SellShipOnRebuyEvent)
+	events.MustRegisterType(string(SellShipOnRebuyEvent), SellShipOnRebuyEvent)
 }

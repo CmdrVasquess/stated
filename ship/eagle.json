@@ -1,0 +1,23 @@
+{
+	"Name": "Eagle",
+	"Manf": "Core Dynamics",
+	"Size": 1,
+	"Cost": 43800,
+	"Crew": 1,
+	"CoreSlots": {
+		"FSD": 0,
+		"FuelTank": 0,
+		"LifeSupport": 0,
+		"PowerDitsr": 0,
+		"PowerPlant": 0,
+		"Sensors": 0,
+		"Thrusters": 0
+	},
+	"Hardpoints": [1, 3, 0, 0, 0],
+	"OptSlots": [
+		{"Size":1, "Count":4},
+		{"Size":2, "Count":2},
+		{"Size":3, "Count":1}
+	],
+	"Fighter": false
+}

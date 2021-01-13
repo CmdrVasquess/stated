@@ -20,5 +20,5 @@ type Reputation struct {
 func (_ *Reputation) EventType() events.Type { return ReputationEvent }
 
 func init() {
-	events.RegisterType(string(ReputationEvent), ReputationEvent)
+	events.MustRegisterType(string(ReputationEvent), ReputationEvent)
 }

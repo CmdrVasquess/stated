@@ -74,5 +74,5 @@ func (s *Status) AllFlags(fs StatusFlag) bool {
 }
 
 func init() {
-	RegisterType(string(StatusEvent), StatusEvent)
+	MustRegisterType(StatusEvent.String(), StatusEvent)
 }

@@ -7,10 +7,10 @@ import (
 )
 
 func init() {
-	evtHdlrs[journal.FSDJumpEvent.String()] = ehFSDJump
+	evtHdlrs[journal.FSDJumpEvent.String()] = jehFSDJump
 }
 
-func ehFSDJump(ed *EDState, e events.Event) (chg att.Change) {
+func jehFSDJump(ed *EDState, e events.Event) (chg att.Change) {
 	cmdr := ed.MustCommander(journal.FSDJumpEvent.String())
 	evt := e.(*journal.FSDJump)
 	chg = ChgSystem

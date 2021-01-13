@@ -22,5 +22,5 @@ type Location struct {
 func (_ *Location) EventType() events.Type { return LocationEvent }
 
 func init() {
-	events.RegisterType(string(LocationEvent), LocationEvent)
+	events.MustRegisterType(string(LocationEvent), LocationEvent)
 }

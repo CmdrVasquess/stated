@@ -25,5 +25,5 @@ type Material struct {
 func (_ *Materials) EventType() events.Type { return MaterialsEvent }
 
 func init() {
-	events.RegisterType(string(MaterialsEvent), MaterialsEvent)
+	events.MustRegisterType(string(MaterialsEvent), MaterialsEvent)
 }
