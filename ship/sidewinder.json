@@ -1,0 +1,22 @@
+{
+	"Name": "Sidewinder",
+	"Manf": "Faulcon DeLacy",
+	"Size": 1,
+	"Cost": 31000,
+	"Crew": 1,
+	"CoreSlots": {
+		"PowerPlant": 2,
+		"Thrusters": 2,
+		"FSD": 2,
+		"LifeSupport": 1,
+		"PowerDitsr": 1,
+		"Sensors": 1,
+		"FuelTank": 1
+	},
+	"Hardpoints": [2, 2, 0, 0, 0],
+	"OptSlots": [
+		{"Size":1, "Count":4},
+		{"Size":2, "Count":2}
+	],
+	"Fighter": false
+}

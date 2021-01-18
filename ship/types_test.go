@@ -2,18 +2,29 @@ package ship
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"testing"
 )
 
 func TestType_read(t *testing.T) {
-	raw, err := ioutil.ReadFile("eagle.json")
-	if err != nil {
-		t.Fatal(err)
+	types := []string{
+		"sidewinder.json",
+		"eagle.json",
 	}
-	var st Type
-	err = json.Unmarshal(raw, &st)
-	if err != nil {
-		t.Fatal(err)
+	for _, typ := range types {
+		t.Run(typ, func(t *testing.T) {
+			rd, err := os.Open(typ)
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer rd.Close()
+			dec := json.NewDecoder(rd)
+			dec.DisallowUnknownFields()
+			var st Type
+			err = dec.Decode(&st)
+			if err != nil {
+				t.Fatal(err)
+			}
+		})
 	}
 }

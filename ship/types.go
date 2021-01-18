@@ -2,6 +2,8 @@ package ship
 
 import (
 	"encoding/json"
+	"io/ioutil"
+	"path/filepath"
 )
 
 type Manufacturer string
@@ -93,4 +95,61 @@ type Type struct {
 	Hardpoints [HugeWeapon + 1]int8
 	OptSlots   []OptSlot
 	Fighter    bool
+}
+
+func (st *Type) NewShip(reuse *Ship) *Ship {
+	if reuse == nil {
+		reuse = new(Ship)
+	}
+	reuse.Type = TypeRef{
+		TypeName: st.Name,
+		Type:     st,
+	}
+	for i, s := range st.Hardpoints {
+		reuse.Tools[i] = make([]*Tool, s)
+	}
+	reuse.OptModules = make([]*OptModule, len(st.OptSlots))
+	return reuse
+}
+
+type TypeRef struct {
+	TypeName string
+	Type     *Type
+}
+
+func (tr TypeRef) MarshalJSON() ([]byte, error) {
+	return json.Marshal(tr.TypeName)
+}
+
+func (tr *TypeRef) UnmarshalJSON(data []byte) error {
+	tr.Type = nil
+	return json.Unmarshal(data, &tr.TypeName)
+}
+
+type TypeRepo interface {
+	Get(t string) *Type
+}
+
+type FsTypeRepo struct {
+	Dir   string
+	cache map[string]*Type
+}
+
+func (fsr *FsTypeRepo) Get(t string) *Type {
+	res, ok := fsr.cache[t]
+	if ok {
+		return res
+	}
+	raw, err := ioutil.ReadFile(filepath.Join(fsr.Dir, t+".json"))
+	if err != nil {
+		fsr.cache[t] = nil
+		return nil
+	}
+	res = new(Type)
+	if err = json.Unmarshal(raw, res); err != nil {
+		fsr.cache[t] = nil
+		return nil
+	}
+	fsr.cache[t] = res
+	return res
 }

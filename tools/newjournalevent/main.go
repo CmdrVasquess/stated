@@ -33,7 +33,7 @@ func main() {
 
 const tmpl = `package journal
 
-import "github.com/CmdrVasquess/goedx/events"
+import "github.com/CmdrVasquess/stated/events"
 
 type {{.Downcase}}T string
 

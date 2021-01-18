@@ -96,6 +96,12 @@ type ChangeEvent struct {
 	Event  events.Event
 }
 
+type Cargo struct {
+	Name   string
+	Count  int16
+	Stolen int16
+}
+
 type EDState struct {
 	Config        `json:"-"`
 	StatEDversion struct{ Major, Minor, Patch int }
@@ -111,6 +117,7 @@ type EDState struct {
 	Loc   JSONLocation
 	Ships map[int]*Ship
 	Mats  Materials
+	Cargo map[string]*Cargo
 
 	Notify []chan<- ChangeEvent `json:"-"`
 
