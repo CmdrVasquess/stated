@@ -1,0 +1,25 @@
+{
+	"Name": "Asp Explorer",
+	"Manf": "Lakon",
+	"Size": 2,
+	"Cost": 6660150,
+	"Crew": 12,
+	"CoreSlots": {
+		"PowerPlant": 5,
+		"Thrusters": 5,
+		"FSD": 5,
+		"LifeSupport": 4,
+		"PowerDitsr": 4,
+		"Sensors": 5,
+		"FuelTank": 5
+	},
+	"Hardpoints": [4, 4, 2, 0, 0],
+	"OptSlots": [
+		{"Size":1, "Count":1},
+		{"Size":2, "Count":2},
+		{"Size":3, "Count":3},
+		{"Size":5, "Count":1},
+		{"Size":6, "Count":1}
+	],
+	"Fighter": false
+}

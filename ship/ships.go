@@ -3,8 +3,8 @@ package ship
 type Engineering struct {
 	Blueprint string
 	Level     int
-	Quality   float64
-	Effect    string
+	Quality   float32
+	Effect    string `json:",omitempty"`
 }
 
 type Alloy int
@@ -19,20 +19,25 @@ const (
 
 type Armour struct {
 	Alloy Alloy
-	Engi  *Engineering
+	Engnr *Engineering `json:",omitempty"`
 }
 
 type Module struct {
-	Type  string
 	Size  int8
 	Class int8
-	Mod   *Engineering
+	Engnr *Engineering
 }
 
-type CoreModulesSpec [FuelTank + 1]Module
+type CoreModule struct {
+	Module
+	Type CoreSlot
+}
+
+type CoreModulesSpec [FuelTank + 1]CoreModule
 
 type OptModule struct {
 	Module
+	Type        string
 	Restriction OptSlotRestriction
 }
 
@@ -52,5 +57,5 @@ type Ship struct {
 	Tools       [HugeWeapon + 1][]*Tool
 	OptModules  []*OptModule
 	Cargo       int
-	MaxJump     float64
+	MaxJump     float32
 }

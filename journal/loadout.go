@@ -1,6 +1,11 @@
 package journal
 
-import "github.com/CmdrVasquess/stated/events"
+import (
+	"encoding/json"
+
+	"git.fractalqb.de/fractalqb/ggja"
+	"github.com/CmdrVasquess/stated/events"
+)
 
 type loadoutT string
 
@@ -17,6 +22,38 @@ type Loadout struct {
 	ShipIdent     string
 	MaxJumpRange  float32
 	CargoCapacity int
+	Modules       []ShipModule
+}
+
+func (l *Loadout) Slot(name string) *ShipModule {
+	for i := range l.Modules {
+		m := &l.Modules[i]
+		if m.Slot == name {
+			return m
+		}
+	}
+	return nil
+}
+
+type ShipModule struct {
+	Slot string
+	Item string
+	Bare ggja.BareObj
+}
+
+func (m *ShipModule) UnmarshalJSON(data []byte) (err error) {
+	var bare ggja.BareObj
+	if err = json.Unmarshal(data, &bare); err != nil {
+		return err
+	}
+	m.Bare = bare
+	obj := ggja.Obj{Bare: bare, OnError: ggja.SetError{&err}.OnError}
+	m.Slot = obj.MStr("Slot")
+	if err != nil {
+		return err
+	}
+	m.Item = obj.MStr("Item")
+	return err
 }
 
 func (_ *Loadout) EventType() events.Type { return LoadoutEvent }

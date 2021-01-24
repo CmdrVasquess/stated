@@ -26,11 +26,11 @@ const (
 	LargeShip
 )
 
-//go:generate stringer -type CoreModule
-type CoreModule int
+//go:generate stringer -type CoreSlot
+type CoreSlot int
 
 const (
-	PowerPlant CoreModule = iota
+	PowerPlant CoreSlot = iota
 	Thrusters
 	FSD
 	LifeSupport
@@ -136,6 +136,9 @@ type FsTypeRepo struct {
 }
 
 func (fsr *FsTypeRepo) Get(t string) *Type {
+	if fsr.cache == nil {
+		fsr.cache = make(map[string]*Type)
+	}
 	res, ok := fsr.cache[t]
 	if ok {
 		return res
