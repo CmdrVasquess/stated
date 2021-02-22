@@ -1,0 +1,27 @@
+{
+	"Name": "Federal Corvette",
+	"Manf": "Core Dynamics",
+	"Size": 3,
+	"Cost": 187968450,
+	"Crew": 3,
+	"CoreSlots": {
+		"PowerPlant": 8,
+		"Thrusters": 7,
+		"FSD": 6,
+		"LifeSupport": 5,
+		"PowerDitsr": 8,
+		"Sensors": 8,
+		"FuelTank": 5
+	},
+	"Hardpoints": [8, 2, 2, 1, 2],
+	"OptSlots": [
+		{"Size":7, "Count":3},
+		{"Size":6, "Count":2},
+		{"Size":5, "Count":2},
+		{"Size":4, "Count":2},
+		{"Size":3, "Count":1},
+		{"Size":1, "Count":1},
+		{"Size":5, "Count":2, "Restrict": "OptMilitary"}
+	],
+	"Fighter": true
+}

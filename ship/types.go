@@ -2,6 +2,7 @@ package ship
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
 )
@@ -28,6 +29,24 @@ const (
 
 //go:generate stringer -type CoreSlot
 type CoreSlot int
+
+func (cs CoreSlot) MarshalJSON() ([]byte, error) {
+	return json.Marshal(cs.String())
+}
+
+func (cs *CoreSlot) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	for i := 0; i < len(_CoreSlot_index); i++ {
+		if tmp := CoreSlot(i); tmp.String() == s {
+			*cs = tmp
+			return nil
+		}
+	}
+	return fmt.Errorf("unknown core slot '%s'", s)
+}
 
 const (
 	PowerPlant CoreSlot = iota
@@ -63,6 +82,24 @@ func (css *CoreSlotsSpec) UnmarshalJSON(data []byte) error {
 //go:generate stringer -type HardpointSize
 type HardpointSize int
 
+func (hps HardpointSize) MarshalJSON() ([]byte, error) {
+	return json.Marshal(hps.String())
+}
+
+func (hps *HardpointSize) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	for i := 0; i < len(_HardpointSize_index); i++ {
+		if tmp := HardpointSize(i); tmp.String() == s {
+			*hps = tmp
+			return nil
+		}
+	}
+	return fmt.Errorf("unknown hardpoint size '%s'", s)
+}
+
 const (
 	Utility HardpointSize = iota
 	SmallWeapon
@@ -74,12 +111,30 @@ const (
 //go:generate stringer -type OptSlotRestriction
 type OptSlotRestriction int
 
+func (osr OptSlotRestriction) MarshalJSON() ([]byte, error) {
+	return json.Marshal(osr.String())
+}
+
+func (osr *OptSlotRestriction) UnmarshalJSON(data []byte) error {
+	var s string
+	if err := json.Unmarshal(data, &s); err != nil {
+		return err
+	}
+	for i := 0; i < len(_OptSlotRestriction_index); i++ {
+		if tmp := OptSlotRestriction(i); tmp.String() == s {
+			*osr = tmp
+			return nil
+		}
+	}
+	return fmt.Errorf("unknown opt-slot restriction '%s'", s)
+}
+
 const (
 	OptAll OptSlotRestriction = iota
 	OptMilitary
 )
 
-type OptSlot struct {
+type OptSlots struct {
 	Size     int8
 	Count    int8
 	Restrict OptSlotRestriction `json:",omitempty"`
@@ -93,7 +148,7 @@ type Type struct {
 	Crew       int8
 	CoreSlots  CoreSlotsSpec
 	Hardpoints [HugeWeapon + 1]int8
-	OptSlots   []OptSlot
+	OptSlots   []OptSlots
 	Fighter    bool
 }
 
@@ -108,8 +163,27 @@ func (st *Type) NewShip(reuse *Ship) *Ship {
 	for i, s := range st.Hardpoints {
 		reuse.Tools[i] = make([]*Tool, s)
 	}
-	reuse.OptModules = make([]*OptModule, len(st.OptSlots))
+	reuse.OptModules = make([]*OptModule, st.OptSlotNo())
 	return reuse
+}
+
+func (st *Type) OptSlot(idx int) *OptSlots {
+	sum := 0
+	for i := range st.OptSlots {
+		def := &st.OptSlots[i]
+		sum += int(def.Count)
+		if idx < sum {
+			return def
+		}
+	}
+	return nil
+}
+
+func (st *Type) OptSlotNo() (res int) {
+	for _, s := range st.OptSlots {
+		res += int(s.Count)
+	}
+	return res
 }
 
 type TypeRef struct {

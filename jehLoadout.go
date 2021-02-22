@@ -15,9 +15,11 @@ import (
 )
 
 var (
-	modSizeRegexp  = regexp.MustCompile(`size([\d]+)`)
-	modClassRegexp = regexp.MustCompile(`class([\d]+)`)
-	modGradeRegexp = regexp.MustCompile(`grade([\d]+)`)
+	modSizeRegexp   = regexp.MustCompile(`size([\d]+)`)
+	modClassRegexp  = regexp.MustCompile(`class([\d]+)`)
+	modGradeRegexp  = regexp.MustCompile(`grade([\d]+)`)
+	modHardptRegexp = regexp.MustCompile(`^([[:alpha:]]+)Hardpoint([\d]+)$`)
+	modOptRegexp    = regexp.MustCompile(`^Slot([\d]+)_Size([\d]+)`)
 )
 
 func intValRegexp(r *regexp.Regexp, s string) int {
@@ -47,6 +49,8 @@ func parseModuleItem(item string) (base string, size int, class int) {
 		if match[0] < baseEnd {
 			baseEnd = match[0]
 		}
+	} else {
+		size = -1
 	}
 	match = modClassRegexp.FindStringSubmatchIndex(item)
 	if match != nil {
@@ -55,12 +59,24 @@ func parseModuleItem(item string) (base string, size int, class int) {
 		if match[0] < baseEnd {
 			baseEnd = match[0]
 		}
+	} else {
+		class = -1
 	}
 	base = strings.Trim(item[:baseEnd], "_")
 	return base, size, class
 }
 
-func shipFromLoadout(e *journal.Loadout, types ship.TypeRepo) (ship *ship.Ship, err error) {
+func parseOptSlot(slotstr string) (slot, size int) {
+	match := modOptRegexp.FindStringSubmatch(slotstr)
+	if match == nil {
+		return -1, -1
+	}
+	slot, _ = strconv.Atoi(match[1])
+	size, _ = strconv.Atoi(match[2])
+	return slot, size
+}
+
+func ShipFromLoadout(e *journal.Loadout, types ship.TypeRepo) (ship *ship.Ship, err error) {
 	shty := types.Get(e.Ship)
 	if shty == nil {
 		return nil, fmt.Errorf("unknown ship type '%s'", e.Ship)
@@ -75,10 +91,110 @@ func shipFromLoadout(e *journal.Loadout, types ship.TypeRepo) (ship *ship.Ship, 
 	if err = coreModsFromLoadout(ship, e); err != nil {
 		return ship, err
 	}
-	// TODO set ship details
+	if err = toolsFromLoadout(ship, e); err != nil {
+		return ship, err
+	}
+	if err = optModsFromLoadout(ship, e); err != nil {
+		return ship, err
+	}
 	ship.Cargo = e.CargoCapacity
 	ship.MaxJump = e.MaxJumpRange
 	return ship, nil
+}
+
+func optModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
+	for i := range e.Modules {
+		emod := &e.Modules[i]
+		slot, ssz := parseOptSlot(emod.Slot)
+		switch {
+		case slot >= 0 || ssz >= 0:
+			item, msz, class := parseModuleItem(emod.Item)
+			if sdef := s.Type.Type.OptSlot(slot - 1); sdef == nil {
+				return fmt.Errorf("no definition for module slot '%s' (%s/%s)",
+					emod.Slot,
+					emod.Slot,
+					emod.Item)
+			} else if ssz != int(sdef.Size) {
+				return fmt.Errorf(
+					"module's slot size %d differs from definition %d (%s/%s)",
+					ssz,
+					sdef.Size,
+					emod.Slot,
+					emod.Item)
+			} else if msz > int(sdef.Size) {
+				return fmt.Errorf("module size %d exceeds slot size %d (%s/%s)",
+					msz,
+					sdef.Size,
+					emod.Slot,
+					emod.Item)
+			}
+			engnr, err := engnrFromLoadout(emod)
+			if err != nil {
+				return err
+			}
+			s.OptModules[slot-1] = &ship.OptModule{
+				Module: ship.Module{
+					Size:  int8(msz),
+					Class: int8(class),
+					Engnr: engnr,
+				},
+				Type: item,
+			}
+		case strings.HasPrefix(emod.Item, "Military"):
+			if err := militaryFromLoadout(s, emod); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func militaryFromLoadout(s *ship.Ship, emod *journal.ShipModule) error {
+	// TODO military modules
+	return nil
+}
+
+func toolsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
+	for i := range e.Modules {
+		emod := &e.Modules[i]
+		match := modHardptRegexp.FindStringSubmatch(emod.Slot)
+		if match == nil {
+			continue
+		}
+		size := match[1]
+		hpno, _ := strconv.Atoi(match[2])
+		var hpsz ship.HardpointSize = -1
+		switch size {
+		case "Tiny":
+			hpsz = ship.Utility
+		case "Small":
+			hpsz = ship.SmallWeapon
+		case "Medium":
+			hpsz = ship.MediumWeapon
+		case "Large":
+			hpsz = ship.LargeWeapon
+		case "Huge":
+			hpsz = ship.HugeWeapon
+		}
+		item, msz, class := parseModuleItem(emod.Item)
+		if msz >= 0 && msz != int(hpsz) {
+			return fmt.Errorf("module size %d of '%s' does not match hard-point size %d",
+				msz,
+				emod.Item,
+				hpsz)
+		}
+		engnr, err := engnrFromLoadout(emod)
+		if err != nil {
+			return err
+		}
+		s.Tools[hpsz][hpno-1] = &ship.Tool{
+			Type:  item,
+			Size:  hpsz,
+			Class: int8(class),
+			Engnr: engnr,
+		}
+	}
+	return nil
 }
 
 func armourFromLoadout(mod *journal.ShipModule) (ship.Armour, error) {

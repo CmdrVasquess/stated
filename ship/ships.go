@@ -25,7 +25,7 @@ type Armour struct {
 type Module struct {
 	Size  int8
 	Class int8
-	Engnr *Engineering
+	Engnr *Engineering `json:",omitempty"`
 }
 
 type CoreModule struct {
@@ -37,14 +37,15 @@ type CoreModulesSpec [FuelTank + 1]CoreModule
 
 type OptModule struct {
 	Module
-	Type        string
-	Restriction OptSlotRestriction
+	Type string
+	// Restriction OptSlotRestriction
 }
 
 type Tool struct {
 	Type  string
 	Size  HardpointSize
 	Class int8
+	Engnr *Engineering `json:",omitempty"`
 }
 
 type Ship struct {

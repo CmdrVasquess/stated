@@ -25,10 +25,10 @@ type Loadout struct {
 	Modules       []ShipModule
 }
 
-func (l *Loadout) Slot(name string) *ShipModule {
+func (l *Loadout) Slot(named string) *ShipModule {
 	for i := range l.Modules {
 		m := &l.Modules[i]
-		if m.Slot == name {
+		if m.Slot == named {
 			return m
 		}
 	}

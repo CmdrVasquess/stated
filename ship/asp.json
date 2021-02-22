@@ -3,7 +3,7 @@
 	"Manf": "Lakon",
 	"Size": 2,
 	"Cost": 6660150,
-	"Crew": 12,
+	"Crew": 2,
 	"CoreSlots": {
 		"PowerPlant": 5,
 		"Thrusters": 5,
@@ -15,11 +15,11 @@
 	},
 	"Hardpoints": [4, 4, 2, 0, 0],
 	"OptSlots": [
-		{"Size":1, "Count":1},
-		{"Size":2, "Count":2},
-		{"Size":3, "Count":3},
+		{"Size":6, "Count":1},
 		{"Size":5, "Count":1},
-		{"Size":6, "Count":1}
+		{"Size":3, "Count":3},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":1}
 	],
 	"Fighter": false
 }
