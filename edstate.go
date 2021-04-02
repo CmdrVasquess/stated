@@ -72,7 +72,7 @@ func LoadJSON(file string, allowEmpty bool, into interface{}, logTmpl string) er
 }
 
 type Config struct {
-	CmdrFile        func(fid, name string) string
+	CmdrFile        func(fid, name string) string `json:"-"`
 	ShutdownLogsOut bool
 }
 

@@ -1,13 +1,7 @@
 package stated
 
 import (
-	"encoding/json"
 	"fmt"
-	"os"
-
-	"github.com/CmdrVasquess/stated/ship"
-
-	"github.com/CmdrVasquess/stated/journal"
 )
 
 func ExampleParseModuleItem() {
