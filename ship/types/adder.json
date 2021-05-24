@@ -1,0 +1,23 @@
+{
+	"Name": "Adder",
+	"Manf": "Zorgon Peterson",
+	"Size": 1,
+	"Cost": 86810,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 3,
+		"Thrusters": 3,
+		"FSD": 3,
+		"LifeSupport": 1,
+		"PowerDitsr": 2,
+		"Sensors": 3,
+		"FuelTank": 3
+	},
+	"Hardpoints": [2, 2, 1, 0, 0],
+	"OptSlots": [
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":3}
+	],
+	"Fighter": false
+}

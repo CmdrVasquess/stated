@@ -1,0 +1,26 @@
+{
+    "Name": "Krait Mk II",
+    "Manf": "Faulcon DeLacy",
+    "Size": 2,
+    "Cost": 44215225,
+    "Crew": 3,
+    "CoreSlots": {
+	"PowerPlant": 7,
+	"Thrusters": 6,
+	"FSD": 5,
+	"LifeSupport": 4,
+	"PowerDitsr": 7,
+	"Sensors": 6,
+	"FuelTank": 5
+    },
+    "Hardpoints": [4, 0, 2, 3, 0],
+    "OptSlots": [
+	{"Size":6, "Count":2},
+	{"Size":5, "Count":2},
+	{"Size":4, "Count":1},
+	{"Size":3, "Count":2},
+	{"Size":2, "Count":1},
+        {"Size":1, "Count":1}
+    ],
+    "Fighter": true
+}

@@ -141,6 +141,7 @@ type OptSlots struct {
 }
 
 type Type struct {
+	Tag        string `json:"-"`
 	Name       string
 	Manf       Manufacturer
 	Size       Size
@@ -157,7 +158,7 @@ func (st *Type) NewShip(reuse *Ship) *Ship {
 		reuse = new(Ship)
 	}
 	reuse.Type = TypeRef{
-		TypeName: st.Name,
+		TypeName: st.Tag,
 		Type:     st,
 	}
 	for i, s := range st.Hardpoints {
@@ -227,6 +228,7 @@ func (fsr *FsTypeRepo) Get(t string) *Type {
 		fsr.cache[t] = nil
 		return nil
 	}
+	res.Tag = t
 	fsr.cache[t] = res
 	return res
 }

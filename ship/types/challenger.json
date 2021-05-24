@@ -1,0 +1,25 @@
+{
+	"Name": "Alliance Challenger",
+	"Manf": "Lakon Spaceways",
+	"Size": 2,
+	"Cost": 28982605,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 6,
+		"FSD": 5,
+		"LifeSupport": 5,
+		"PowerDitsr": 6,
+		"Sensors": 4,
+		"FuelTank": 4
+	},
+	"Hardpoints": [4, 3, 3, 1, 0],
+	"OptSlots": [
+		{"Size":6, "Count":2},
+		{"Size":4, "Count":3},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": false
+}

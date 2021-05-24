@@ -21,24 +21,27 @@ var (
 		"generate":    mkGenerate,
 		defaultTagret: mkTest,
 		"build":       mkBuild,
-		"deps":        func() { task.DepsGraph(build) },
+		"deps":        func() { task.DepsGraph(build, update) },
 	}
+	update = false
 )
 
 func mkGenerate() {
-	task.GetVersioner(build)
-	build.WDir().Exec("go", "generate", "./...")
+	task.GetVersioner(build, update)
+	gomk.Exec(build.WDir(), "go", "generate", "./...")
 }
 
 func mkTest() {
 	mkGenerate()
-	build.WDir().Exec("go", "test", "./...")
+	gomk.Exec(build.WDir(), "go", "test", "./...")
 }
 
 func mkBuild() {
 	mkGenerate()
-	build.WDir().Cd("tools", "newjournalevent").Exec("go", "build", "--trimpath")
-	build.WDir().Cd("examples", "netstated").Exec("go", "build", "--trimpath")
+	gomk.Exec(build.WDir().Cd("tools", "newjournalevent"),
+		"go", "build", "--trimpath")
+	gomk.Exec(build.WDir().Cd("examples", "netstated"),
+		"go", "build", "--trimpath")
 }
 
 func usage() {
