@@ -1,0 +1,167 @@
+> {
+>   "ID": 22,
+>   "Type": "cobramkiv",
+>   "Name": "Roy Batty",
+>   "Ident": "JV-C41",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Dirty",
+>         "Level": 4,
+>         "Quality": 0
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 0.298
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_HighFrequency",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Sensor_Sensor_LightWeight",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       null,
+>       null,
+>       {
+>         "Type": "hpt_mininglaser_fixed_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_flakmortar_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_flakmortar_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Reinforced",
+>         "Level": 4,
+>         "Quality": 0
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": -1,
+>       "Type": "int_guardianfsdbooster"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_corrosionproofcargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_repair"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_buggybay"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dockingcomputer_standard"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 24,
+>   "MaxJump": 40.7843
+> }

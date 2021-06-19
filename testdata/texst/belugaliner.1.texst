@@ -1,0 +1,148 @@
+> {
+>   "ID": 61,
+>   "Type": "belugaliner",
+>   "Name": "Narcissus",
+>   "Ident": "JV-BL1",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 7,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Engine_Dirty",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 8,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 7,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       null,
+>       null,
+>       null,
+>       null,
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       null,
+>       null,
+>       null,
+>       null,
+>       null
+>     ],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dockingcomputer_standard"
+>     }
+>   ],
+>   "Cargo": 0,
+>   "MaxJump": 33.549488
+> }

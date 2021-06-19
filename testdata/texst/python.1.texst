@@ -1,0 +1,145 @@
+> {
+>   "ID": 86,
+>   "Type": "python",
+>   "Name": "APOPTYGMA",
+>   "Ident": "JV-PY4",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 2,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null,
+>       null
+>     ],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dockingcomputer_advanced"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     }
+>   ],
+>   "Cargo": 288,
+>   "MaxJump": 38.580833
+> }

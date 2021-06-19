@@ -1,0 +1,24 @@
+{
+	"Name": "Diamondback Explorer",
+	"Manf": "Lakon Spaceways",
+	"Size": 1,
+	"Cost": 1893760,
+	"Crew": 1,
+	"CoreSlots": {
+		"PowerPlant": 4,
+		"Thrusters": 4,
+		"FSD": 5,
+		"LifeSupport": 3,
+		"PowerDitsr": 4,
+		"Sensors": 3,
+		"FuelTank": 5
+	},
+	"Hardpoints": [4, 0, 2, 1, 0],
+	"OptSlots": [
+		{"Size":4, "Count":2},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":2}
+	],
+	"Fighter": false
+}

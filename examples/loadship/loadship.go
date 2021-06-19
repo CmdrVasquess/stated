@@ -8,7 +8,7 @@ import (
 
 	"github.com/CmdrVasquess/stated"
 	"github.com/CmdrVasquess/stated/journal"
-	"github.com/CmdrVasquess/stated/ship"
+	"github.com/CmdrVasquess/stated/ships"
 )
 
 var typesDir = "../../ship"
@@ -20,7 +20,7 @@ func loadShip(file string) {
 	}
 	var je journal.Loadout
 	json.Unmarshal(raw, &je)
-	types := ship.FsTypeRepo{Dir: typesDir}
+	types := ships.FsTypeRepo{Dir: typesDir}
 	ship, err := stated.ShipFromLoadout(&je, &types)
 	if err != nil {
 		log.Fatal(err)

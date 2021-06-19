@@ -12,6 +12,7 @@ func (t fileheaderT) String() string    { return string(t) }
 type Fileheader struct {
 	events.Common
 	GameVersion string `json:"gameversion"`
+	Odyssey     bool
 	Language    string `json:"language"`
 }
 

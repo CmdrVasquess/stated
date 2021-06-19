@@ -1,0 +1,111 @@
+> {
+>   "ID": 87,
+>   "Type": "sidewinder",
+>   "Name": "NEWT",
+>   "Ident": "JV-SW5",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Tuned",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 3,
+>         "Quality": 0.725
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_railgun_fixed_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_railgun_fixed_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     null,
+>     {
+>       "Size": 1,
+>       "Class": 3,
+>       "Type": "int_shieldgenerator"
+>     },
+>     null,
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 4,
+>   "MaxJump": 24.027664
+> }

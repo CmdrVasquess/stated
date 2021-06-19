@@ -1,0 +1,24 @@
+{
+	"Name": "Cobra Mk IV",
+	"Manf": "Faulcon DeLacy",
+	"Size": 1,
+	"Cost": 746660,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 4,
+		"Thrusters": 4,
+		"FSD": 4,
+		"LifeSupport": 3,
+		"PowerDitsr": 3,
+		"Sensors": 3,
+		"FuelTank": 4
+	},
+	"Hardpoints": [2, 3, 2, 0, 0],
+	"OptSlots": [
+		{"Size":4, "Count":4},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":2}
+	],
+	"Fighter": false
+}

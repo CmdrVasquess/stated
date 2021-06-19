@@ -1,0 +1,186 @@
+> {
+>   "ID": 75,
+>   "Type": "mamba",
+>   "Name": "Deckard",
+>   "Ident": "JV-MB1",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 2,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Tuned",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 0.477
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Sensor_Sensor_LightWeight",
+>         "Level": 2,
+>         "Quality": 0
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 2,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 2,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_cargoscanner",
+>         "Size": "Utility",
+>         "Class": 5
+>       },
+>       {
+>         "Type": "hpt_cloudscanner",
+>         "Size": "Utility",
+>         "Class": 1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_railgun_fixed_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_railgun_fixed_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       {
+>         "Type": "hpt_pulselaserburst_gimbal_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_pulselaserburst_gimbal_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_multicannon_gimbal_huge",
+>         "Size": "HugeWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_Overcharged",
+>           "Level": 3,
+>           "Quality": 0
+>         }
+>       }
+>     ]
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Reinforced",
+>         "Level": 3,
+>         "Quality": 0.52
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "int_fsdinterdictor"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_resourcesiphon"
+>     }
+>   ],
+>   "Cargo": 16,
+>   "MaxJump": 19.638912
+> }

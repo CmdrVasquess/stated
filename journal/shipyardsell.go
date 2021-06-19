@@ -12,6 +12,7 @@ func (t shipyardsellT) String() string    { return string(t) }
 type ShipyardSell struct {
 	events.Common
 	SellShipID int
+	ShipType   string
 	ShipPrice  int64
 }
 

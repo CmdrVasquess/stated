@@ -1,0 +1,26 @@
+{
+	"Name": "Orca",
+	"Manf": "Saud Kruger",
+	"Size": 3,
+	"Cost": 48538900,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 5,
+		"Thrusters": 6,
+		"FSD": 5,
+		"LifeSupport": 6,
+		"PowerDitsr": 5,
+		"Sensors": 4,
+		"FuelTank": 5
+	},
+	"Hardpoints": [4, 0, 2, 1, 0],
+	"OptSlots": [
+        {"Size":6, "Count":1},
+		{"Size":5, "Count":3},
+		{"Size":4, "Count":1},
+		{"Size":3, "Count":1},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": false
+}

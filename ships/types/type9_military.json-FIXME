@@ -1,0 +1,28 @@
+{
+	"Name": "Type-10 Defender",
+	"Manf": "Lakon Spaceways",
+	"Size": 3,
+	"Cost": 124914502,
+	"Crew": 3,
+	"CoreSlots": {
+		"PowerPlant": 8,
+		"Thrusters": 7,
+		"FSD": 7,
+		"LifeSupport": 5,
+		"PowerDitsr": 7,
+		"Sensors": 4,
+		"FuelTank": 6
+	},
+	"Hardpoints": [8, 2, 3, 4, 0],
+	"OptSlots": [
+		{"Size":8, "Count":1},
+		{"Size":7, "Count":1},
+		{"Size":6, "Count":1},
+		{"Size":5, "Count":3},
+		{"Size":4, "Count":2},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":1},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": true
+}

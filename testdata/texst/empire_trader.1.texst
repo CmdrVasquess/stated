@@ -1,0 +1,180 @@
+> {
+>   "ID": 85,
+>   "Type": "empire_trader",
+>   "Name": "RACHAEL",
+>   "Ident": "JV-CL1",
+>   "Armour": {
+>     "Alloy": 2
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 4,
+>         "Quality": 0.8557
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 4,
+>         "Quality": 0.899
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_HighFrequency",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Misc_LightWeight",
+>           "Level": 2,
+>           "Quality": 0.828
+>         }
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_cargoscanner",
+>         "Size": "Utility",
+>         "Class": 5
+>       }
+>     ],
+>     [],
+>     [
+>       {
+>         "Type": "hpt_basicmissilerack_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_dumbfiremissilerack_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_pulselaserburst_turret_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_Efficient",
+>           "Level": 3,
+>           "Quality": 0
+>         }
+>       },
+>       {
+>         "Type": "hpt_pulselaserburst_turret_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_Efficient",
+>           "Level": 3,
+>           "Quality": 0
+>         }
+>       }
+>     ],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Reinforced",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_dronecontrol_recon"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_buggybay"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_resourcesiphon"
+>     }
+>   ],
+>   "Cargo": 64,
+>   "MaxJump": 22.026337
+> }

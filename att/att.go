@@ -1,10 +1,37 @@
 package att
 
+import (
+	"time"
+)
+
 type Change uint64
 
-func (chg Change) Any(c Change) bool       { return (chg & c) != 0 }
-func (chg Change) All(c Change) bool       { return (chg & c) == c }
+const Everything Change = ^Change(0)
+
+func (chg Change) Any(filter Change) bool  { return (chg & filter) != 0 }
+func (chg Change) All(filter Change) bool  { return (chg & filter) == filter }
 func (chg Change) Without(c Change) Change { return chg &^ c }
+
+func (chg Change) As(ok, otherwise Change) Change {
+	if chg == 0 {
+		return otherwise
+	}
+	return ok
+}
+
+func (chg Change) AnyAs(filter, ok, otherwise Change) Change {
+	if chg.Any(filter) {
+		return ok
+	}
+	return otherwise
+}
+
+func (chg Change) AllAs(filter, ok, otherwise Change) Change {
+	if chg.All(filter) {
+		return ok
+	}
+	return otherwise
+}
 
 type Bool bool
 
@@ -123,3 +150,17 @@ func (s *String) Set(v string, chg Change) Change {
 }
 
 func (s String) Get() string { return string(s) }
+
+type Time time.Time
+
+func (t *Time) Set(v time.Time, chg Change) Change {
+	if v.Equal(time.Time(*t)) {
+		return 0
+	}
+	*t = Time(v)
+	return chg
+}
+
+func (t *Time) Get() time.Time { return time.Time(*t) }
+
+func (t Time) IsZero() bool { return time.Time(t).IsZero() }

@@ -1,0 +1,27 @@
+{
+	"Name": "Imperial Cutter",
+	"Manf": "Gutamaya",
+	"Size": 3,
+	"Cost": 208968450,
+	"Crew": 3,
+	"CoreSlots": {
+		"PowerPlant": 8,
+		"Thrusters": 8,
+		"FSD": 7,
+		"LifeSupport": 7,
+		"PowerDitsr": 7,
+		"Sensors": 7,
+		"FuelTank": 6
+	},
+	"Hardpoints": [8, 0, 4, 2, 1],
+	"OptSlots": [
+        {"Size":8, "Count":2},
+		{"Size":6, "Count":3},
+		{"Size":5, "Count":2},
+		{"Size":4, "Count":1},
+		{"Size":3, "Count":1},
+		{"Size":1, "Count":1},
+		{"Size":5, "Count":2, "Restrict": "OptMilitary"}
+	],
+	"Fighter": true
+}

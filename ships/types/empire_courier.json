@@ -1,0 +1,23 @@
+{
+	"Name": "Imperial Courier",
+	"Manf": "Gutamaya",
+	"Size": 1,
+	"Cost": 2541930,
+	"Crew": 1,
+	"CoreSlots": {
+		"PowerPlant": 4,
+		"Thrusters": 3,
+		"FSD": 3,
+		"LifeSupport": 1,
+		"PowerDitsr": 3,
+		"Sensors": 2,
+		"FuelTank": 3
+	},
+	"Hardpoints": [4, 0, 3, 0, 0],
+	"OptSlots": [
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":3},
+		{"Size":1, "Count":3}
+	],
+	"Fighter": false
+}

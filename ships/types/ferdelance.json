@@ -1,0 +1,24 @@
+{
+	"Name": "Fer-de-Lance",
+	"Manf": "Zorgon Peterson",
+	"Size": 2,
+	"Cost": 51566040,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 5,
+		"FSD": 4,
+		"LifeSupport": 4,
+		"PowerDitsr": 6,
+		"Sensors": 4,
+		"FuelTank": 3
+	},
+	"Hardpoints": [6, 0, 4, 0, 1],
+	"OptSlots": [
+		{"Size":5, "Count":1},
+		{"Size":4, "Count":2},
+		{"Size":2, "Count":1},
+		{"Size":1, "Count":2}
+	],
+	"Fighter": false
+}

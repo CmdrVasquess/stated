@@ -1,0 +1,208 @@
+> {
+>   "ID": 68,
+>   "Type": "anaconda",
+>   "Name": "Prometheus",
+>   "Ident": "JV-AC2",
+>   "Armour": {
+>     "Alloy": 0,
+>     "Engnr": {
+>       "Blueprint": "Armour_HeavyDuty",
+>       "Level": 4,
+>       "Quality": 0.988
+>     }
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 5,
+>         "Quality": 0.8571
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Engine_Tuned",
+>         "Level": 5,
+>         "Quality": 0.968
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Misc_LightWeight",
+>         "Level": 4,
+>         "Quality": 0.917
+>       },
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_PriorityEngines",
+>         "Level": 5,
+>         "Quality": 0.85
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 8,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Sensor_LightWeight",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       null,
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       null,
+>       null,
+>       null,
+>       null,
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       {
+>         "Type": "hpt_railgun_fixed_small",
+>         "Size": "LargeWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_LightWeight",
+>           "Level": 4,
+>           "Quality": 1
+>         }
+>       },
+>       null,
+>       null
+>     ],
+>     [
+>       null
+>     ]
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Misc_Shielded",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "int_repairer"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Misc_Shielded",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "int_repairer"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": -1,
+>       "Type": "int_guardianfsdbooster"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Optimised",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_buggybay"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 1,
+>       "Type": "int_dronecontrol_decontamination"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_repair"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dronecontrol_unkvesselresearch"
+>     },
+>     null,
+>     null,
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Engnr": {
+>         "Blueprint": "Sensor_Expanded",
+>         "Level": 5,
+>         "Quality": 0.4247
+>       },
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     }
+>   ],
+>   "Cargo": 64,
+>   "MaxJump": 78.73367
+> }

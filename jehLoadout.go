@@ -11,7 +11,7 @@ import (
 	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
-	"github.com/CmdrVasquess/stated/ship"
+	"github.com/CmdrVasquess/stated/ships"
 )
 
 var (
@@ -37,6 +37,8 @@ func init() {
 
 func jehLoadout(ed *EDState, e events.Event) (chg att.Change) {
 	ed.MustCommander(journal.LoadoutEvent.String())
+	evt := e.(*journal.Loadout)
+	ShipFromLoadout(evt, nil) // TODO Where to get ShipTypeRepos from
 	return chg
 }
 
@@ -76,12 +78,16 @@ func parseOptSlot(slotstr string) (slot, size int) {
 	return slot, size
 }
 
-func ShipFromLoadout(e *journal.Loadout, types ship.TypeRepo) (ship *ship.Ship, err error) {
-	shty := types.Get(e.Ship)
-	if shty == nil {
+func ShipFromLoadout(e *journal.Loadout, types ships.TypeRepo) (ship *ships.Ship, err error) {
+	shty, err := types.Get(e.Ship)
+	switch {
+	case err != nil:
+		return nil, err
+	case shty == nil:
 		return nil, fmt.Errorf("unknown ship type '%s'", e.Ship)
 	}
 	ship = shty.NewShip(nil)
+	ship.ID = e.ShipID
 	ship.Name = e.ShipName
 	ship.Ident = e.ShipIdent
 	ship.Armour, err = armourFromLoadout(e.Slot("Armour"))
@@ -102,14 +108,22 @@ func ShipFromLoadout(e *journal.Loadout, types ship.TypeRepo) (ship *ship.Ship, 
 	return ship, nil
 }
 
-func optModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
+func optModsFromLoadout(s *ships.Ship, e *journal.Loadout) error {
+	slotIdxOffset := -1
 	for i := range e.Modules {
 		emod := &e.Modules[i]
 		slot, ssz := parseOptSlot(emod.Slot)
 		switch {
 		case slot >= 0 || ssz >= 0:
+			if slot == 0 { // Type-9 got an extra size 8 slot with index 0
+				if slotIdxOffset == 0 {
+					return fmt.Errorf("2nd slot with index 0: %s", emod.Slot)
+				}
+				copy(s.OptModules[1:], s.OptModules)
+				slotIdxOffset = 0
+			}
 			item, msz, class := parseModuleItem(emod.Item)
-			if sdef := s.Type.Type.OptSlot(slot - 1); sdef == nil {
+			if sdef := s.Type.Type.OptSlot(slot + slotIdxOffset); sdef == nil {
 				return fmt.Errorf("no definition for module slot '%s' (%s/%s)",
 					emod.Slot,
 					emod.Slot,
@@ -132,8 +146,8 @@ func optModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 			if err != nil {
 				return err
 			}
-			s.OptModules[slot-1] = &ship.OptModule{
-				Module: ship.Module{
+			s.OptModules[slot+slotIdxOffset] = &ships.OptModule{
+				Module: ships.Module{
 					Size:  int8(msz),
 					Class: int8(class),
 					Engnr: engnr,
@@ -149,12 +163,12 @@ func optModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 	return nil
 }
 
-func militaryFromLoadout(s *ship.Ship, emod *journal.ShipModule) error {
+func militaryFromLoadout(s *ships.Ship, emod *journal.ShipModule) error {
 	// TODO military modules
 	return nil
 }
 
-func toolsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
+func toolsFromLoadout(s *ships.Ship, e *journal.Loadout) error {
 	for i := range e.Modules {
 		emod := &e.Modules[i]
 		match := modHardptRegexp.FindStringSubmatch(emod.Slot)
@@ -163,18 +177,18 @@ func toolsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 		}
 		size := match[1]
 		hpno, _ := strconv.Atoi(match[2])
-		var hpsz ship.HardpointSize = -1
+		var hpsz ships.HardpointSize = -1
 		switch size {
 		case "Tiny":
-			hpsz = ship.Utility
+			hpsz = ships.Utility
 		case "Small":
-			hpsz = ship.SmallWeapon
+			hpsz = ships.SmallWeapon
 		case "Medium":
-			hpsz = ship.MediumWeapon
+			hpsz = ships.MediumWeapon
 		case "Large":
-			hpsz = ship.LargeWeapon
+			hpsz = ships.LargeWeapon
 		case "Huge":
-			hpsz = ship.HugeWeapon
+			hpsz = ships.HugeWeapon
 		}
 		item, msz, class := parseModuleItem(emod.Item)
 		if msz >= 0 && msz != int(hpsz) {
@@ -187,7 +201,7 @@ func toolsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 		if err != nil {
 			return err
 		}
-		s.Tools[hpsz][hpno-1] = &ship.Tool{
+		s.Tools[hpsz][hpno-1] = &ships.Tool{
 			Type:  item,
 			Size:  hpsz,
 			Class: int8(class),
@@ -197,24 +211,28 @@ func toolsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 	return nil
 }
 
-func armourFromLoadout(mod *journal.ShipModule) (ship.Armour, error) {
-	res := ship.Armour{
-		Alloy: ship.Alloy(intValRegexp(modGradeRegexp, mod.Item) - 1),
+func armourFromLoadout(mod *journal.ShipModule) (ships.Armour, error) {
+	res := ships.Armour{
+		Alloy: ships.Alloy(intValRegexp(modGradeRegexp, mod.Item) - 1),
 	}
 	if res.Alloy < 0 {
 		return res, fmt.Errorf("unknown alloy '%s'", mod.Item)
 	}
-	return res, nil
+	engnr, err := engnrFromLoadout(mod)
+	if err == nil {
+		res.Engnr = engnr
+	}
+	return res, err
 }
 
-func engnrFromLoadout(emod *journal.ShipModule) (res *ship.Engineering, err error) {
+func engnrFromLoadout(emod *journal.ShipModule) (res *ships.Engineering, err error) {
 	jobj := &ggja.Obj{Bare: emod.Bare}
 	jobj = jobj.Obj("Engineering")
 	if jobj == nil {
 		return nil, nil
 	}
-	jobj.OnError = ggja.SetError{&err}.OnError
-	res = &ship.Engineering{
+	jobj.OnError = ggja.SetError{Target: &err}.OnError
+	res = &ships.Engineering{
 		Blueprint: jobj.MStr("BlueprintName"),
 		Level:     jobj.MInt("Level"),
 		Quality:   jobj.MF32("Quality"),
@@ -222,26 +240,26 @@ func engnrFromLoadout(emod *journal.ShipModule) (res *ship.Engineering, err erro
 	return res, err
 }
 
-func coreModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
+func coreModsFromLoadout(s *ships.Ship, e *journal.Loadout) error {
 	count := 0
-	var cmod ship.CoreSlot
+	var cmod ships.CoreSlot
 	for i := range e.Modules {
 		emod := &e.Modules[i]
 		switch emod.Slot {
 		case "PowerPlant":
-			cmod = ship.PowerPlant
+			cmod = ships.PowerPlant
 		case "MainEngines":
-			cmod = ship.Thrusters
+			cmod = ships.Thrusters
 		case "FrameShiftDrive":
-			cmod = ship.FSD
+			cmod = ships.FSD
 		case "LifeSupport":
-			cmod = ship.LifeSupport
+			cmod = ships.LifeSupport
 		case "PowerDistributor":
-			cmod = ship.PowerDitsr
+			cmod = ships.PowerDitsr
 		case "Radar":
-			cmod = ship.Sensors
+			cmod = ships.Sensors
 		case "FuelTank":
-			cmod = ship.FuelTank
+			cmod = ships.FuelTank
 		default:
 			continue
 		}
@@ -250,8 +268,8 @@ func coreModsFromLoadout(s *ship.Ship, e *journal.Loadout) error {
 		if err != nil {
 			return err
 		}
-		s.CoreModules[cmod] = ship.CoreModule{
-			Module: ship.Module{
+		s.CoreModules[cmod] = ships.CoreModule{
+			Module: ships.Module{
 				Size:  int8(sz),
 				Class: int8(cls),
 				Engnr: engnr,

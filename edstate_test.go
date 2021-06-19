@@ -33,9 +33,11 @@ func TestEDState_OnJournalEvent_NoCmdr(t *testing.T) {
 			Time: time.Now(),
 			Tag:  journal.FSDJumpEvent.String(),
 		},
-		SystemAddress: 4711,
-		StarSystem:    "Pusemuckel",
-		StarPos:       [3]float32{1, 2, 3},
+		SSysInfo: journal.SSysInfo{
+			SystemAddress: 4711,
+			StarSystem:    "Pusemuckel",
+			StarPos:       [3]float32{1, 2, 3},
+		},
 	}
 	re, err := json.Marshal(&fsdjump)
 	if err != nil {

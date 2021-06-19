@@ -11,6 +11,9 @@ func (t shipyardswapT) String() string    { return string(t) }
 
 type ShipyardSwap struct {
 	events.Common
+	MarketID    int64
+	ShipType    string
+	ShipTypeL7d string `json:"ShipType_Localised"`
 	ShipID      int
 	StoreShipID int
 }

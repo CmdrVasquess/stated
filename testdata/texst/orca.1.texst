@@ -1,0 +1,138 @@
+> {
+>   "ID": 30,
+>   "Type": "orca",
+>   "Name": "Leeloo Minai",
+>   "Ident": "jv-OC1",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null
+>     ],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 6,
+>       "Class": 4,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "int_passengercabin"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": -1,
+>       "Type": "int_guardianfsdbooster"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Reinforced",
+>         "Level": 4,
+>         "Quality": 0
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dockingcomputer_standard"
+>     }
+>   ],
+>   "Cargo": 4,
+>   "MaxJump": 47.41269
+> }

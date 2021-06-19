@@ -1,0 +1,94 @@
+> {
+>   "ID": 72,
+>   "Type": "cobramkiii",
+>   "Name": "Of Fate",
+>   "Ident": "Irony",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_buggybay"
+>     },
+>     null,
+>     null,
+>     null,
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 16,
+>   "MaxJump": 26.167397
+> }

@@ -1,0 +1,25 @@
+{
+	"Name": "Beluga Liner",
+	"Manf": "Saud Kruger",
+	"Size": 3,
+	"Cost": 84531770,
+	"Crew": 3,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 7,
+		"FSD": 7,
+		"LifeSupport": 8,
+		"PowerDitsr": 6,
+		"Sensors": 5,
+		"FuelTank": 7
+	},
+	"Hardpoints": [6, 0, 5, 0, 0],
+	"OptSlots": [
+		{"Size":6, "Count":4},
+		{"Size":5, "Count":2},
+		{"Size":4, "Count":1},
+		{"Size":3, "Count":4},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": true
+}

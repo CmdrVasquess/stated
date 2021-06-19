@@ -1,0 +1,166 @@
+> {
+>   "ID": 3,
+>   "Type": "asp",
+>   "Name": "Nugget",
+>   "Ident": "jv-ax1",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Engine_Tuned",
+>         "Level": 5,
+>         "Quality": 0.234
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "LifeSupport_LightWeight",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_PriorityEngines",
+>         "Level": 3,
+>         "Quality": 0.6029
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Sensor_Sensor_LightWeight",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "HeatSinkLauncher_LightWeight",
+>           "Level": 1,
+>           "Quality": 0
+>         }
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       null,
+>       null,
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": -1,
+>       "Type": "int_guardianfsdbooster"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Optimised",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_dockingcomputer_standard"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 16,
+>   "MaxJump": 70.782
+> }

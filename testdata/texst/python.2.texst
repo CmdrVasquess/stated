@@ -1,0 +1,185 @@
+> {
+>   "ID": 60,
+>   "Type": "python",
+>   "Name": "Patna",
+>   "Ident": "jv-py3",
+>   "Armour": {
+>     "Alloy": 2,
+>     "Engnr": {
+>       "Blueprint": "Armour_HeavyDuty",
+>       "Level": 5,
+>       "Quality": 1
+>     }
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 2,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Tuned",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 4,
+>         "Quality": 1
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_HighFrequency",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Sensor_LightWeight",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_mrascanner",
+>         "Size": "Utility",
+>         "Class": 5
+>       },
+>       {
+>         "Type": "hpt_chafflauncher_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       {
+>         "Type": "hpt_mining_seismchrgwarhd_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_mining_subsurfdispmisle_fixed_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_mininglaser_fixed_medium",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_mininglaser_fixed_medium",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_mining_abrblstr_fixed_small",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "int_refinery"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_prospector"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 5,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 128,
+>   "MaxJump": 24.387638
+> }

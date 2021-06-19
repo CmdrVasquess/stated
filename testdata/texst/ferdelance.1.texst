@@ -1,0 +1,98 @@
+> {
+>   "ID": 84,
+>   "Type": "ferdelance",
+>   "Name": "PRIS",
+>   "Ident": "JV-FL2",
+>   "Armour": {
+>     "Alloy": 0
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Dirty",
+>         "Level": 3,
+>         "Quality": 0
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       null,
+>       null,
+>       null,
+>       null,
+>       null,
+>       null
+>     ],
+>     [],
+>     [
+>       null,
+>       null,
+>       null,
+>       null
+>     ],
+>     [],
+>     [
+>       null
+>     ]
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     null,
+>     null,
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     }
+>   ],
+>   "Cargo": 24,
+>   "MaxJump": 16.037252
+> }

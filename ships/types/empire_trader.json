@@ -1,0 +1,26 @@
+{
+	"Name": "Imperial Clipper",
+	"Manf": "Gutamaya",
+	"Size": 3,
+	"Cost": 22295860,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 6,
+		"FSD": 5,
+		"LifeSupport": 5,
+		"PowerDitsr": 6,
+		"Sensors": 5,
+		"FuelTank": 4
+	},
+	"Hardpoints": [4, 0, 2, 2, 0],
+	"OptSlots": [
+		{"Size":7, "Count":1},
+		{"Size":6, "Count":1},
+		{"Size":4, "Count":2},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":2},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": false
+}

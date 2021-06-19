@@ -1,0 +1,28 @@
+{
+	"Name": "Type-9 Heavy",
+	"Manf": "Lakon Spaceways",
+	"Size": 3,
+	"Cost": 7655840,
+	"Crew": 3,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 7,
+		"FSD": 6,
+		"LifeSupport": 5,
+		"PowerDitsr": 6,
+		"Sensors": 4,
+		"FuelTank": 6
+	},
+	"Hardpoints": [4, 2, 3, 0, 0],
+	"OptSlots": [
+		{"Size":8, "Count":2},
+		{"Size":7, "Count":1},
+		{"Size":6, "Count":1},
+		{"Size":5, "Count":1},
+		{"Size":4, "Count":2},
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":1},
+		{"Size":1, "Count":1}
+	],
+	"Fighter": true
+}

@@ -13,6 +13,7 @@ type Docked struct {
 	events.Common
 	SystemAddress  uint64
 	StarSystem     string
+	MarketID       int64
 	StationName    string
 	StationType    string
 	DistFromStarLS float64

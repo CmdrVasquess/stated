@@ -1,0 +1,158 @@
+> {
+>   "ID": 74,
+>   "Type": "diamondbackxl",
+>   "Name": "Giger",
+>   "Ident": "JV-DX4",
+>   "Armour": {
+>     "Alloy": 0,
+>     "Engnr": {
+>       "Blueprint": "Armour_HeavyDuty",
+>       "Level": 3,
+>       "Quality": 1
+>     }
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 1,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_HighFrequency",
+>         "Level": 2,
+>         "Quality": 1
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Sensor_LightWeight",
+>         "Level": 2,
+>         "Quality": 1
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_Resistive",
+>           "Level": 3,
+>           "Quality": 0
+>         }
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_plasmapointdefence_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       }
+>     ],
+>     [],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null
+>     ],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 4,
+>       "Class": -1,
+>       "Type": "int_guardianfsdbooster"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 1,
+>       "Type": "int_cargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Optimised",
+>         "Level": 3,
+>         "Quality": 0.8987
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 2,
+>       "Type": "int_corrosionproofcargorack"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_buggybay"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_supercruiseassist"
+>     },
+>     {
+>       "Size": -1,
+>       "Class": -1,
+>       "Type": "int_detailedsurfacescanner_tiny"
+>     }
+>   ],
+>   "Cargo": 10,
+>   "MaxJump": 54.48793
+> }

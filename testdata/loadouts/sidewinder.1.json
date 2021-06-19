@@ -1,0 +1,316 @@
+{
+  "timestamp": "2021-05-27T16:38:36Z",
+  "event": "Loadout",
+  "Ship": "sidewinder",
+  "ShipID": 87,
+  "ShipName": "NEWT",
+  "ShipIdent": "JV-SW5",
+  "HullValue": 4034,
+  "ModulesValue": 2447463,
+  "HullHealth": 1.0,
+  "UnladenMass": 42.0,
+  "CargoCapacity": 4,
+  "MaxJumpRange": 24.027664,
+  "FuelCapacity": {
+    "Main": 2.0,
+    "Reserve": 0.3
+  },
+  "Rebuy": 91933,
+  "Modules": [
+    {
+      "Slot": "SmallHardpoint1",
+      "Item": "hpt_railgun_fixed_small",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 80,
+      "Health": 1.0,
+      "Value": 45279
+    },
+    {
+      "Slot": "SmallHardpoint2",
+      "Item": "hpt_railgun_fixed_small",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 80,
+      "Health": 1.0,
+      "Value": 45279
+    },
+    {
+      "Slot": "TinyHardpoint1",
+      "Item": "hpt_heatsinklauncher_turret_tiny",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 2,
+      "Health": 1.0,
+      "Value": 3072
+    },
+    {
+      "Slot": "TinyHardpoint2",
+      "Item": "hpt_heatsinklauncher_turret_tiny",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 2,
+      "Health": 1.0,
+      "Value": 3072
+    },
+    {
+      "Slot": "Armour",
+      "Item": "sidewinder_armour_grade1",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "PaintJob",
+      "Item": "paintjob_sidewinder_lrpo_azure",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "PowerPlant",
+      "Item": "int_powerplant_size2_class5",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 140521
+    },
+    {
+      "Slot": "MainEngines",
+      "Item": "int_engine_size2_class5_fast",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 1569828,
+      "Engineering": {
+        "Engineer": "Professor Palin",
+        "EngineerID": 300220,
+        "BlueprintID": 128673665,
+        "BlueprintName": "Engine_Tuned",
+        "Level": 1,
+        "Quality": 1.0,
+        "Modifiers": [
+          {
+            "Label": "EngineOptimalMass",
+            "Value": 58.800003,
+            "OriginalValue": 60.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "EngineOptPerformance",
+            "Value": 124.200012,
+            "OriginalValue": 115.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "EngineHeatRate",
+            "Value": 1.6,
+            "OriginalValue": 2.0,
+            "LessIsGood": 1
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "FrameShiftDrive",
+      "Item": "int_hyperdrive_size2_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 140597,
+      "Engineering": {
+        "Engineer": "Professor Palin",
+        "EngineerID": 300220,
+        "BlueprintID": 128673692,
+        "BlueprintName": "FSD_LongRange",
+        "Level": 3,
+        "Quality": 0.725,
+        "Modifiers": [
+          {
+            "Label": "Mass",
+            "Value": 3.0,
+            "OriginalValue": 2.5,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "Integrity",
+            "Value": 58.239998,
+            "OriginalValue": 64.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "PowerDraw",
+            "Value": 0.327,
+            "OriginalValue": 0.3,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "FSDOptimalMass",
+            "Value": 119.025002,
+            "OriginalValue": 90.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "LifeSupport",
+      "Item": "int_lifesupport_size1_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 1135
+    },
+    {
+      "Slot": "PowerDistributor",
+      "Item": "int_powerdistributor_size1_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 17722
+    },
+    {
+      "Slot": "Radar",
+      "Item": "int_sensors_size1_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 1135
+    },
+    {
+      "Slot": "FuelTank",
+      "Item": "int_fueltank_size1_class3",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 877
+    },
+    {
+      "Slot": "Decal1",
+      "Item": "decal_networktesters",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipName0",
+      "Item": "nameplate_explorer03_white",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipName1",
+      "Item": "nameplate_explorer03_white",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipID0",
+      "Item": "nameplate_shipid_grey",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipID1",
+      "Item": "nameplate_shipid_grey",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "Slot01_Size2",
+      "Item": "int_fuelscoop_size2_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 249951
+    },
+    {
+      "Slot": "Slot02_Size2",
+      "Item": "int_cargorack_size2_class1",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 2851
+    },
+    {
+      "Slot": "Slot04_Size1",
+      "Item": "int_shieldgenerator_size1_class3_fast",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 6769
+    },
+    {
+      "Slot": "Slot06_Size1",
+      "Item": "int_detailedsurfacescanner_tiny",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 219375
+    },
+    {
+      "Slot": "PlanetaryApproachSuite",
+      "Item": "int_planetapproachsuite_advanced",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "Bobble03",
+      "Item": "bobble_planet_mars",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "Bobble08",
+      "Item": "bobble_pilotmale",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "WeaponColour",
+      "Item": "weaponcustomisation_red",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "EngineColour",
+      "Item": "enginecustomisation_blue",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "VesselVoice",
+      "Item": "voicepack_verity",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipCockpit",
+      "Item": "sidewinder_cockpit",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "CargoHatch",
+      "Item": "modularcargobaydoor",
+      "On": true,
+      "Priority": 2,
+      "Health": 1.0
+    }
+  ]
+}

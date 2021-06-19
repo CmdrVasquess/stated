@@ -1,0 +1,574 @@
+{
+  "timestamp": "2021-05-27T17:28:31Z",
+  "event": "Loadout",
+  "Ship": "empire_trader",
+  "ShipID": 85,
+  "ShipName": "RACHAEL",
+  "ShipIdent": "JV-CL1",
+  "HullValue": 18522077,
+  "ModulesValue": 126841343,
+  "HullHealth": 1.0,
+  "UnladenMass": 800.157471,
+  "CargoCapacity": 64,
+  "MaxJumpRange": 22.026337,
+  "FuelCapacity": {
+    "Main": 16.0,
+    "Reserve": 0.74
+  },
+  "Rebuy": 5451129,
+  "Modules": [
+    {
+      "Slot": "LargeHardpoint1",
+      "Item": "hpt_pulselaserburst_turret_large",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 720360,
+      "Engineering": {
+        "Engineer": "The Dweller",
+        "EngineerID": 300180,
+        "BlueprintID": 128673357,
+        "BlueprintName": "Weapon_Efficient",
+        "Level": 3,
+        "Quality": 0.0,
+        "Modifiers": [
+          {
+            "Label": "Mass",
+            "Value": 6.26177,
+            "OriginalValue": 8.0,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "Integrity",
+            "Value": 64.667221,
+            "OriginalValue": 64.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "PowerDraw",
+            "Value": 1.290961,
+            "OriginalValue": 1.57,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "DamagePerSecond",
+            "Value": 11.728271,
+            "OriginalValue": 11.010397,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "Damage",
+            "Value": 3.760155,
+            "OriginalValue": 3.53,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "DistributorDraw",
+            "Value": 0.447412,
+            "OriginalValue": 0.56,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "ThermalLoad",
+            "Value": 0.326993,
+            "OriginalValue": 0.78,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "ArmourPenetration",
+            "Value": 47.680611,
+            "OriginalValue": 52.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "LargeHardpoint2",
+      "Item": "hpt_pulselaserburst_turret_large",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 800400,
+      "Engineering": {
+        "Engineer": "The Dweller",
+        "EngineerID": 300180,
+        "BlueprintID": 128673357,
+        "BlueprintName": "Weapon_Efficient",
+        "Level": 3,
+        "Quality": 0.0,
+        "Modifiers": [
+          {
+            "Label": "Mass",
+            "Value": 6.588354,
+            "OriginalValue": 8.0,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "PowerDraw",
+            "Value": 1.357485,
+            "OriginalValue": 1.57,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "DamagePerSecond",
+            "Value": 11.355338,
+            "OriginalValue": 11.010397,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "Damage",
+            "Value": 3.64059,
+            "OriginalValue": 3.53,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "DistributorDraw",
+            "Value": 0.444882,
+            "OriginalValue": 0.56,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "ThermalLoad",
+            "Value": 0.436037,
+            "OriginalValue": 0.78,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "ArmourPenetration",
+            "Value": 50.21516,
+            "OriginalValue": 52.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "MediumHardpoint1",
+      "Item": "hpt_basicmissilerack_fixed_medium",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 6,
+      "AmmoInHopper": 18,
+      "Health": 1.0,
+      "Value": 449631
+    },
+    {
+      "Slot": "MediumHardpoint2",
+      "Item": "hpt_dumbfiremissilerack_fixed_medium",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 12,
+      "AmmoInHopper": 48,
+      "Health": 1.0,
+      "Value": 234390
+    },
+    {
+      "Slot": "TinyHardpoint1",
+      "Item": "hpt_heatsinklauncher_turret_tiny",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 2,
+      "Health": 1.0,
+      "Value": 3150,
+      "Engineering": {
+        "Engineer": "Ram Tah",
+        "EngineerID": 300110,
+        "BlueprintID": 128731472,
+        "BlueprintName": "Misc_LightWeight",
+        "Level": 2,
+        "Quality": 0.828,
+        "Modifiers": [
+          {
+            "Label": "Mass",
+            "Value": 0.60736,
+            "OriginalValue": 1.3,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "Integrity",
+            "Value": 36.0,
+            "OriginalValue": 45.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "TinyHardpoint2",
+      "Item": "hpt_chafflauncher_tiny",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 10,
+      "Health": 1.0,
+      "Value": 7459
+    },
+    {
+      "Slot": "TinyHardpoint3",
+      "Item": "hpt_chafflauncher_tiny",
+      "On": true,
+      "Priority": 0,
+      "AmmoInClip": 1,
+      "AmmoInHopper": 10,
+      "Health": 1.0,
+      "Value": 7459
+    },
+    {
+      "Slot": "TinyHardpoint4",
+      "Item": "hpt_cargoscanner_size0_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 962702
+    },
+    {
+      "Slot": "PaintJob",
+      "Item": "paintjob_empire_trader_lrpo_azure",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "Armour",
+      "Item": "empire_trader_armour_grade3",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 17608156
+    },
+    {
+      "Slot": "PowerPlant",
+      "Item": "int_powerplant_size6_class5",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 13408787,
+      "Engineering": {
+        "Engineer": "Marco Qwent",
+        "EngineerID": 300200,
+        "BlueprintID": 128673768,
+        "BlueprintName": "PowerPlant_Boosted",
+        "Level": 4,
+        "Quality": 0.8557,
+        "ExperimentalEffect": "special_powerplant_cooled",
+        "ExperimentalEffect_Localised": "Thermal Spread",
+        "Modifiers": [
+          {
+            "Label": "Integrity",
+            "Value": 99.200005,
+            "OriginalValue": 124.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "PowerCapacity",
+            "Value": 33.261482,
+            "OriginalValue": 25.200001,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "HeatEfficiency",
+            "Value": 0.432,
+            "OriginalValue": 0.4,
+            "LessIsGood": 1
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "MainEngines",
+      "Item": "int_engine_size6_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 14197539
+    },
+    {
+      "Slot": "FrameShiftDrive",
+      "Item": "int_hyperdrive_size5_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 4478720,
+      "Engineering": {
+        "Engineer": "Elvira Martuuk",
+        "EngineerID": 300160,
+        "BlueprintID": 128673693,
+        "BlueprintName": "FSD_LongRange",
+        "Level": 4,
+        "Quality": 0.899,
+        "Modifiers": [
+          {
+            "Label": "Mass",
+            "Value": 25.0,
+            "OriginalValue": 20.0,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "Integrity",
+            "Value": 105.599998,
+            "OriginalValue": 120.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "PowerDraw",
+            "Value": 0.672,
+            "OriginalValue": 0.6,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "FSDOptimalMass",
+            "Value": 1511.89502,
+            "OriginalValue": 1050.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "LifeSupport",
+      "Item": "int_lifesupport_size5_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 69713
+    },
+    {
+      "Slot": "PowerDistributor",
+      "Item": "int_powerdistributor_size6_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 3128120,
+      "Engineering": {
+        "Engineer": "The Dweller",
+        "EngineerID": 300180,
+        "BlueprintID": 128673737,
+        "BlueprintName": "PowerDistributor_HighFrequency",
+        "Level": 3,
+        "Quality": 0.0,
+        "Modifiers": [
+          {
+            "Label": "PowerDraw",
+            "Value": 0.792246,
+            "OriginalValue": 0.82,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "WeaponsCapacity",
+            "Value": 47.768448,
+            "OriginalValue": 50.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "WeaponsRecharge",
+            "Value": 6.003245,
+            "OriginalValue": 5.2,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "EnginesCapacity",
+            "Value": 33.437912,
+            "OriginalValue": 35.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "EnginesRecharge",
+            "Value": 3.694305,
+            "OriginalValue": 3.2,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "SystemsCapacity",
+            "Value": 33.437912,
+            "OriginalValue": 35.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "SystemsRecharge",
+            "Value": 3.742182,
+            "OriginalValue": 3.2,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "Radar",
+      "Item": "int_sensors_size5_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 69713
+    },
+    {
+      "Slot": "FuelTank",
+      "Item": "int_fueltank_size4_class3",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 21704
+    },
+    {
+      "Slot": "Slot01_Size7",
+      "Item": "int_shieldgenerator_size7_class5_strong",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 67509295,
+      "Engineering": {
+        "Engineer": "Lei Cheung",
+        "EngineerID": 300120,
+        "BlueprintID": 128673838,
+        "BlueprintName": "ShieldGenerator_Reinforced",
+        "Level": 4,
+        "Quality": 1.0,
+        "Modifiers": [
+          {
+            "Label": "ShieldGenStrength",
+            "Value": 197.999985,
+            "OriginalValue": 150.0,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "BrokenRegenRate",
+            "Value": 3.825,
+            "OriginalValue": 4.25,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "EnergyPerRegen",
+            "Value": 0.66,
+            "OriginalValue": 0.6,
+            "LessIsGood": 1
+          },
+          {
+            "Label": "KineticResistance",
+            "Value": 48.099995,
+            "OriginalValue": 39.999996,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "ThermicResistance",
+            "Value": -3.800011,
+            "OriginalValue": -20.000004,
+            "LessIsGood": 0
+          },
+          {
+            "Label": "ExplosiveResistance",
+            "Value": 56.75,
+            "OriginalValue": 50.0,
+            "LessIsGood": 0
+          }
+        ]
+      }
+    },
+    {
+      "Slot": "Slot02_Size6",
+      "Item": "int_cargorack_size6_class1",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0,
+      "Value": 318173
+    },
+    {
+      "Slot": "Slot03_Size4",
+      "Item": "int_fuelscoop_size4_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 2790805
+    },
+    {
+      "Slot": "Slot04_Size4",
+      "Item": "int_dronecontrol_collection_size3_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 9477
+    },
+    {
+      "Slot": "Slot05_Size3",
+      "Item": "int_dronecontrol_collection_size3_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 9477
+    },
+    {
+      "Slot": "Slot06_Size3",
+      "Item": "int_dronecontrol_recon_size3_class1",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 7196
+    },
+    {
+      "Slot": "Slot07_Size2",
+      "Item": "int_dronecontrol_collection_size1_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 1053
+    },
+    {
+      "Slot": "Slot08_Size2",
+      "Item": "int_buggybay_size2_class2",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 19440
+    },
+    {
+      "Slot": "Slot09_Size1",
+      "Item": "int_dronecontrol_resourcesiphon_size1_class5",
+      "On": true,
+      "Priority": 0,
+      "Health": 1.0,
+      "Value": 8424
+    },
+    {
+      "Slot": "PlanetaryApproachSuite",
+      "Item": "int_planetapproachsuite_advanced",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "WeaponColour",
+      "Item": "weaponcustomisation_red",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "EngineColour",
+      "Item": "enginecustomisation_blue",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "VesselVoice",
+      "Item": "voicepack_verity",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "ShipCockpit",
+      "Item": "empire_trader_cockpit",
+      "On": true,
+      "Priority": 1,
+      "Health": 1.0
+    },
+    {
+      "Slot": "CargoHatch",
+      "Item": "modularcargobaydoor",
+      "On": true,
+      "Priority": 2,
+      "Health": 1.0
+    }
+  ]
+}

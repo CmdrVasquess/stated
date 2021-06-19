@@ -145,7 +145,7 @@ func (ed *EDState) Reset() {
 
 func (es *EDState) SetEDVersion(v string) {
 	es.EDVersion = v
-	es.Beta = strings.Index(strings.ToLower(v), "beta") >= 0
+	es.Beta = strings.Contains(strings.ToLower(v), "beta")
 }
 
 var langMap = map[string]string{

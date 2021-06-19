@@ -9,5 +9,5 @@ require (
 	git.fractalqb.de/fractalqb/qbsllm v0.11.3
 	git.fractalqb.de/fractalqb/sllm v1.0.1
 	github.com/CmdrVasquess/watched v0.6.5
-	github.com/fractalqb/texst v0.4.2
+	github.com/fractalqb/texst v0.5.0
 )

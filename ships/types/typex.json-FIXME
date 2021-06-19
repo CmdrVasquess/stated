@@ -1,0 +1,27 @@
+{
+	"Name": "Alliance Chieftain",
+	"Manf": "Lakon Spaceways",
+	"Size": 2,
+	"Cost": 18991773,
+	"Crew": 2,
+	"CoreSlots": {
+		"PowerPlant": 6,
+		"Thrusters": 6,
+		"FSD": 5,
+		"LifeSupport": 5,
+		"PowerDitsr": 6,
+		"Sensors": 4,
+		"FuelTank": 4
+	},
+	"Hardpoints": [4, 3, 1, 2, 0],
+	"OptSlots": [
+		{"Size":6, "Count":1},
+		{"Size":5, "Count":1},
+		{"Size":4, "Count":1},
+		{"Size":2, "Count":1},
+		{"Size":1, "Count":1},
+        {"Size":4, "Count":2, "Restrict": "OptMilitary"},
+        {"Size":2, "Count":1, "Restrict": "OptMilitary"}
+	],
+	"Fighter": false
+}

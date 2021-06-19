@@ -1,0 +1,101 @@
+> {
+>   "ID": 67,
+>   "Type": "viper",
+>   "Name": "2F4S74U",
+>   "Ident": "JV-VP1",
+>   "Armour": {
+>     "Alloy": 0,
+>     "Engnr": {
+>       "Blueprint": "Armour_HeavyDuty",
+>       "Level": 3,
+>       "Quality": 1
+>     }
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 2,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 1,
+>         "Quality": 0.9517
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Dirty",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Sensor_LightWeight",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 2,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [
+>       null,
+>       null
+>     ],
+>     [],
+>     []
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 3,
+>       "Class": 5,
+>       "Type": "int_fuelscoop"
+>     },
+>     null,
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_shieldgenerator"
+>     },
+>     null,
+>     null,
+>     null,
+>     null
+>   ],
+>   "Cargo": 0,
+>   "MaxJump": 12.359468
+> }

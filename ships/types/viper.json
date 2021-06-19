@@ -1,0 +1,24 @@
+{
+	"Name": "Viper Mk III",
+	"Manf": "Faulcon DeLacy",
+	"Size": 1,
+	"Cost": 141930,
+	"Crew": 1,
+	"CoreSlots": {
+		"PowerPlant": 3,
+		"Thrusters": 3,
+		"FSD": 3,
+		"LifeSupport": 2,
+		"PowerDitsr": 3,
+		"Sensors": 3,
+		"FuelTank": 2
+	},
+	"Hardpoints": [2, 2, 2, 0, 0],
+	"OptSlots": [
+		{"Size":3, "Count":2},
+		{"Size":2, "Count":1},
+		{"Size":1, "Count":3},
+        {"Size":3, "Count":1, "Restrict": "OptMilitary"}
+	],
+	"Fighter": false
+}

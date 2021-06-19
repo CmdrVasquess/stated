@@ -1,0 +1,290 @@
+> {
+>   "ID": 19,
+>   "Type": "anaconda",
+>   "Name": "SULACO",
+>   "Ident": "LV-426",
+>   "Armour": {
+>     "Alloy": 2,
+>     "Engnr": {
+>       "Blueprint": "Armour_HeavyDuty",
+>       "Level": 5,
+>       "Quality": 1
+>     }
+>   },
+>   "CoreModules": [
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerPlant_Boosted",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "PowerPlant"
+>     },
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "Engine_Dirty",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "Thrusters"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "FSD_LongRange",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "FSD"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Type": "LifeSupport"
+>     },
+>     {
+>       "Size": 8,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "PowerDistributor_HighFrequency",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "PowerDitsr"
+>     },
+>     {
+>       "Size": 8,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "Sensor_Sensor_LightWeight",
+>         "Level": 5,
+>         "Quality": 0
+>       },
+>       "Type": "Sensors"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 3,
+>       "Type": "FuelTank"
+>     }
+>   ],
+>   "Tools": [
+>     [
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_heatsinklauncher_turret_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_xenoscanner_basic_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_antiunknownshutdown_tiny",
+>         "Size": "Utility",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_shieldbooster",
+>         "Size": "Utility",
+>         "Class": 5,
+>         "Engnr": {
+>           "Blueprint": "ShieldBooster_HeavyDuty",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_beamlaser_turret_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_LongRange",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       },
+>       {
+>         "Type": "hpt_beamlaser_turret_small",
+>         "Size": "SmallWeapon",
+>         "Class": -1,
+>         "Engnr": {
+>           "Blueprint": "Weapon_LongRange",
+>           "Level": 5,
+>           "Quality": 1
+>         }
+>       }
+>     ],
+>     [
+>       null,
+>       {
+>         "Type": "hpt_flakmortar_turret_medium",
+>         "Size": "MediumWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_atmulticannon_turret_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_atmulticannon_turret_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       },
+>       {
+>         "Type": "hpt_atmulticannon_turret_large",
+>         "Size": "LargeWeapon",
+>         "Class": -1
+>       }
+>     ],
+>     [
+>       {
+>         "Type": "hpt_atmulticannon_turret_large",
+>         "Size": "HugeWeapon",
+>         "Class": -1
+>       }
+>     ]
+>   ],
+>   "OptModules": [
+>     {
+>       "Size": 7,
+>       "Class": 5,
+>       "Engnr": {
+>         "Blueprint": "ShieldGenerator_Reinforced",
+>         "Level": 5,
+>         "Quality": 1
+>       },
+>       "Type": "int_shieldgenerator"
+>     },
+>     {
+>       "Size": 6,
+>       "Class": 5,
+>       "Type": "int_shieldcellbank"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "HullReinforcement_HeavyDuty",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "int_hullreinforcement"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "HullReinforcement_HeavyDuty",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "int_hullreinforcement"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "HullReinforcement_HeavyDuty",
+>         "Level": 3,
+>         "Quality": 1
+>       },
+>       "Type": "int_hullreinforcement"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "HullReinforcement_HeavyDuty",
+>         "Level": 3,
+>         "Quality": 0.9875
+>       },
+>       "Type": "int_hullreinforcement"
+>     },
+>     {
+>       "Size": 5,
+>       "Class": 2,
+>       "Engnr": {
+>         "Blueprint": "HullReinforcement_HeavyDuty",
+>         "Level": 2,
+>         "Quality": 1
+>       },
+>       "Type": "int_hullreinforcement"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 2,
+>       "Type": "int_modulereinforcement"
+>     },
+>     {
+>       "Size": 4,
+>       "Class": 1,
+>       "Type": "int_corrosionproofcargorack"
+>     },
+>     {
+>       "Size": 3,
+>       "Class": 2,
+>       "Type": "int_dronecontrol_collection"
+>     },
+>     null,
+>     null,
+>     {
+>       "Size": 2,
+>       "Class": 2,
+>       "Type": "int_modulereinforcement"
+>     },
+>     {
+>       "Size": 1,
+>       "Class": 1,
+>       "Type": "int_dronecontrol_decontamination"
+>     }
+>   ],
+>   "Cargo": 16,
+>   "MaxJump": 29.516594
+> }
