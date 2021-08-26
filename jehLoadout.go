@@ -8,10 +8,10 @@ import (
 
 	"git.fractalqb.de/fractalqb/ggja"
 
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
 	"github.com/CmdrVasquess/stated/ships"
+	"github.com/fractalqb/change"
 )
 
 var (
@@ -35,7 +35,7 @@ func init() {
 	evtHdlrs[journal.LoadoutEvent.String()] = jehLoadout
 }
 
-func jehLoadout(ed *EDState, e events.Event) (chg att.Change) {
+func jehLoadout(ed *EDState, e events.Event) (chg change.Flags) {
 	ed.MustCommander(journal.LoadoutEvent.String())
 	evt := e.(*journal.Loadout)
 	ShipFromLoadout(evt, nil) // TODO Where to get ShipTypeRepos from

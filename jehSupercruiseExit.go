@@ -1,16 +1,16 @@
 package stated
 
 import (
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
+	"github.com/fractalqb/change"
 )
 
 func init() {
 	evtHdlrs[journal.SupercruiseExitEvent.String()] = jehSupercruiseExit
 }
 
-func jehSupercruiseExit(ed *EDState, e events.Event) (chg att.Change) {
+func jehSupercruiseExit(ed *EDState, e events.Event) (chg change.Flags) {
 	ed.MustCommander(journal.SellShipOnRebuyEvent.String())
 	evt := e.(*journal.SupercruiseExit)
 	must(ed.WrLocked(func() error {

@@ -11,19 +11,18 @@ import (
 
 	"git.fractalqb.de/fractalqb/sllm"
 
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/watched"
+	"github.com/fractalqb/change"
+	"github.com/fractalqb/change/chgv"
 )
 
-//go:generate versioner -pkg stated -bno build_no VERSION version.go
-
-type HandlerFunc func(*EDState, events.Event) att.Change
+type HandlerFunc func(*EDState, events.Event) change.Flags
 
 var evtHdlrs = make(map[string]HandlerFunc)
 
 const (
-	ChgGame att.Change = (1 << iota)
+	ChgGame change.Flags = (1 << iota)
 	ChgCommander
 	ChgSystem
 	ChgLocation
@@ -92,7 +91,7 @@ func (cf CmdrFile) Filename(fid, _ string) string {
 }
 
 type ChangeEvent struct {
-	Change att.Change
+	Change change.Flags
 	Event  events.Event
 }
 
@@ -103,8 +102,7 @@ type Cargo struct {
 }
 
 type EDState struct {
-	Config        `json:"-"`
-	StatEDversion struct{ Major, Minor, Patch int }
+	Config `json:"-"`
 
 	EDVersion string `json:"-"`
 	Beta      bool   `json:"-"`
@@ -131,9 +129,6 @@ func NewEDState(cfg *Config) *EDState {
 	if cfg != nil {
 		res.Config = *cfg
 	}
-	res.StatEDversion.Major = Major
-	res.StatEDversion.Minor = Minor
-	res.StatEDversion.Patch = Patch
 	return res
 }
 
@@ -199,7 +194,7 @@ func (ed *EDState) SwitchCommander(fid string, name string) error {
 	if ed.Cmdr == nil {
 		ed.Cmdr = &Commander{
 			FID:  fid,
-			Name: att.String(name),
+			Name: chgv.String(name),
 		}
 	} else if ed.Cmdr.FID != fid {
 		err := sllm.Error("load `file with FID` for `FID`", ed.Cmdr.FID, fid)
@@ -306,7 +301,7 @@ func (ed *EDState) Close() error {
 	return ed.Save()
 }
 
-func (ed *EDState) ntfChg(chg att.Change, e events.Event) {
+func (ed *EDState) ntfChg(chg change.Flags, e events.Event) {
 	ce := ChangeEvent{chg, e}
 	for i, c := range ed.Notify {
 		select {

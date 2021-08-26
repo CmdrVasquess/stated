@@ -1,16 +1,16 @@
 package stated
 
 import (
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
+	"github.com/fractalqb/change"
 )
 
 func init() {
 	evtHdlrs[journal.DockedEvent.String()] = jehDocked
 }
 
-func jehDocked(ed *EDState, e events.Event) (chg att.Change) {
+func jehDocked(ed *EDState, e events.Event) (chg change.Flags) {
 	ed.MustCommander(journal.DockedEvent.String())
 	evt := e.(*journal.Docked)
 	must(ed.WrLocked(func() error {

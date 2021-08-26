@@ -1,16 +1,16 @@
 package stated
 
 import (
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
+	"github.com/fractalqb/change"
 )
 
 func init() {
 	evtHdlrs[journal.CargoEvent.String()] = jehCargo
 }
 
-func jehCargo(ed *EDState, e events.Event) (chg att.Change) {
+func jehCargo(ed *EDState, e events.Event) (chg change.Flags) {
 	ed.MustCommander(journal.DockedEvent.String())
 	evt := e.(*journal.Cargo)
 	if evt.Vessel != "Ship" {

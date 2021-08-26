@@ -3,14 +3,14 @@ package stated
 import (
 	"encoding/json"
 
-	"github.com/CmdrVasquess/stated/att"
+	"github.com/fractalqb/change/chgv"
 )
 
 type Commander struct {
 	FID    string
-	Name   att.String
+	Name   chgv.String
 	Ranks  Ranks
-	ShipID att.Int
+	ShipID chgv.Int
 	inShip *Ship
 }
 
@@ -24,7 +24,7 @@ type Rank struct {
 }
 
 //go:generate stringer -type RankType
-type RankType att.Int16
+type RankType int16
 
 const (
 	Combat RankType = iota

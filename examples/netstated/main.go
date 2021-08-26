@@ -8,9 +8,9 @@ import (
 
 	"git.fractalqb.de/fractalqb/c4hgol"
 	"git.fractalqb.de/fractalqb/qbsllm"
+	"github.com/fractalqb/change"
 
 	"github.com/CmdrVasquess/stated"
-	"github.com/CmdrVasquess/stated/att"
 	"github.com/CmdrVasquess/watched/edeh/edehnet"
 )
 
@@ -34,7 +34,7 @@ func printChanges() {
 		fmt.Printf("%s: %s event changed:\n",
 			chg.Event.Timestamp(),
 			chg.Event.Event())
-		for c := att.Change(1); c < stated.ChgEND; c = c << 1 {
+		for c := change.Flags(1); c < stated.ChgEND; c = c << 1 {
 			if chg.Change&c == 0 {
 				continue
 			}

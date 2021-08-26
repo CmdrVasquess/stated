@@ -7,6 +7,7 @@ import (
 	"math"
 
 	"git.fractalqb.de/fractalqb/ggja"
+	"github.com/fractalqb/change"
 
 	"github.com/CmdrVasquess/stated/att"
 )
@@ -14,10 +15,10 @@ import (
 type SysCoos [3]att.Float32
 
 func ToSysCoos(x, y, z float32) SysCoos {
-	return SysCoos{att.Float32(x), att.Float32(y), att.Float32(z)}
+	return SysCoos{att.ToFloat32(x), att.ToFloat32(y), att.ToFloat32(z)}
 }
 
-func (sc *SysCoos) Set(x, y, z float32, chg att.Change) (res att.Change) {
+func (sc *SysCoos) Set(x, y, z float32, chg change.Flags) (res change.Flags) {
 	res |= sc[0].Set(x, chg)
 	res |= sc[1].Set(y, chg)
 	res |= sc[2].Set(z, chg)
@@ -25,9 +26,9 @@ func (sc *SysCoos) Set(x, y, z float32, chg att.Change) (res att.Change) {
 }
 
 func (sc *SysCoos) Valid() bool {
-	return !math.IsNaN(float64((*sc)[0])) &&
-		!math.IsNaN(float64((*sc)[1])) &&
-		!math.IsNaN(float64((*sc)[2]))
+	return !math.IsNaN(float64((*sc)[0].Get())) &&
+		!math.IsNaN(float64((*sc)[1].Get())) &&
+		!math.IsNaN(float64((*sc)[2].Get()))
 }
 
 const (
@@ -121,7 +122,7 @@ func (s *System) FromMap(m map[string]interface{}) (err error) {
 		return err
 	}
 	if coos := obj.Arr("Coos"); coos == nil {
-		nan32 := att.Float32(math.NaN())
+		nan32 := att.ToFloat32(float32(math.NaN()))
 		s.Coos[0] = nan32
 		s.Coos[1] = nan32
 		s.Coos[2] = nan32
