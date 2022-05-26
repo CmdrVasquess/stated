@@ -7,14 +7,14 @@ import (
 	"os"
 
 	"git.fractalqb.de/fractalqb/c4hgol"
-	"git.fractalqb.de/fractalqb/qbsllm"
+	"git.fractalqb.de/fractalqb/qblog"
 	"github.com/CmdrVasquess/stated"
 	"github.com/CmdrVasquess/watched"
 )
 
 var (
-	log                      = qbsllm.New(qbsllm.Lnormal, "edjread", nil, nil)
-	LogCfg c4hgol.Configurer = c4hgol.Config(qbsllm.NewConfig(log),
+	log    = qblog.New("edjread")
+	logCfg = c4hgol.NewLogGroup(log, "",
 		stated.LogCfg,
 	)
 
@@ -29,7 +29,7 @@ func must(err error) {
 }
 
 func readJournal(file string) {
-	log.Infoa("read `journal file`", file)
+	log.Infov("read `journal file`", file)
 	rd, err := os.Open(file)
 	must(err)
 	defer rd.Close()
@@ -44,18 +44,21 @@ func readJournal(file string) {
 }
 
 func main() {
-	fLog := flag.String(c4hgol.DefaultFlagLevel, "", c4hgol.LevelCfgDoc(nil))
-	fLsLog := flag.Bool(c4hgol.DefaultFlagList, false, "List configurable loggers")
+	fLog := flag.String("log", "", c4hgol.FlagDoc())
+	fLsLog := flag.Bool("log-list", false, "List configurable loggers")
 	fCmdr := flag.String("cmdr", "", "dir for commander file")
 	flag.Parse()
-	c4hgol.SetLevel(LogCfg, *fLog, nil)
+	c4hgol.Configure(logCfg, *fLog, true)
 	if *fCmdr != "" {
 		edstate.CmdrFile = stated.CmdrFile{Dir: *fCmdr}.Filename
 	}
 	if *fLsLog {
 		wr := flag.CommandLine.Output()
 		fmt.Fprintln(wr, "Loggers:")
-		c4hgol.ListLogs(LogCfg, wr, " - ")
+		c4hgol.Visit(logCfg, func(_ c4hgol.LogConfig, p string) error {
+			fmt.Fprintf(wr, " - %s", p)
+			return nil
+		})
 	}
 	for _, f := range flag.Args() {
 		readJournal(f)

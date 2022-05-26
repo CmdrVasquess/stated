@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"git.fractalqb.de/fractalqb/c4hgol"
-	"git.fractalqb.de/fractalqb/qbsllm"
+	"git.fractalqb.de/fractalqb/qblog"
 	"github.com/fractalqb/change"
 
 	"github.com/CmdrVasquess/stated"
@@ -20,8 +20,8 @@ var (
 		CmdrFile: stated.CmdrFile{Dir: "."}.Filename,
 	})
 
-	log                      = qbsllm.New(qbsllm.Lnormal, "netstated", nil, nil)
-	LogCfg c4hgol.Configurer = c4hgol.Config(qbsllm.NewConfig(log),
+	log    = qblog.New("netstated")
+	logCfg = c4hgol.NewLogGroup(log, "",
 		edehnet.LogCfg,
 		stated.LogCfg,
 	)
@@ -64,15 +64,18 @@ func printChanges() {
 }
 
 func main() {
-	fLog := flag.String(c4hgol.DefaultFlagLevel, "", c4hgol.LevelCfgDoc(nil))
-	fLsLog := flag.Bool(c4hgol.DefaultFlagList, false, "List configurable loggers")
+	fLog := flag.String("log", "", c4hgol.FlagDoc())
+	fLsLog := flag.Bool("log-list", false, "List configurable loggers")
 	flag.StringVar(&recv.Listen, "l", "", "TCP listen address")
 	flag.Parse()
-	c4hgol.SetLevel(LogCfg, *fLog, nil)
+	c4hgol.Configure(logCfg, *fLog, true)
 	if *fLsLog {
 		wr := flag.CommandLine.Output()
 		fmt.Fprintln(wr, "Loggers:")
-		c4hgol.ListLogs(LogCfg, wr, " - ")
+		c4hgol.Visit(logCfg, func(_ c4hgol.LogConfig, p string) error {
+			fmt.Fprintf(wr, " - %s", p)
+			return nil
+		})
 	}
 	edstate.Notify = []chan<- stated.ChangeEvent{changes}
 	go printChanges()

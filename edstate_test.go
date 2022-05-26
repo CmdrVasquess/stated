@@ -8,6 +8,7 @@ import (
 
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/stated/journal"
+	"github.com/fractalqb/change"
 
 	"github.com/CmdrVasquess/watched"
 )
@@ -19,7 +20,7 @@ func ExampleEDState_marshal() {
 		CmdrFile: CmdrFile{Dir: "."}.Filename,
 	})
 	eds.Cmdr = NewCommander("F4711")
-	eds.Cmdr.Name = "John Doe"
+	eds.Cmdr.Name = change.NewVal("John Doe")
 	_, err := json.Marshal(eds)
 	fmt.Println(err)
 	// Output:

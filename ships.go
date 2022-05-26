@@ -3,16 +3,15 @@ package stated
 import (
 	"time"
 
-	"github.com/fractalqb/change/chgv"
-
 	"github.com/CmdrVasquess/stated/att"
+	"github.com/fractalqb/change"
 )
 
 type Ship struct {
 	Type     string
-	Ident    chgv.String
-	Name     chgv.String
-	Cargo    chgv.Int
+	Ident    change.Val[string]
+	Name     change.Val[string]
+	Cargo    change.Val[int]
 	MaxRange att.Float32
 	MaxJump  att.Float32
 	Berth    *Port      `json:",omitempty"`

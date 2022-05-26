@@ -109,7 +109,7 @@ const (
 )
 
 //go:generate stringer -type OptSlotRestriction
-type OptSlotRestriction int
+type OptSlotRestriction uint8
 
 func (osr OptSlotRestriction) MarshalJSON() ([]byte, error) {
 	return json.Marshal(osr.String())
@@ -134,9 +134,9 @@ const (
 	OptMilitary
 )
 
-type OptSlots struct {
+type OptSlot struct {
+	ID       int8
 	Size     int8
-	Count    int8
 	Restrict OptSlotRestriction `json:",omitempty"`
 }
 
@@ -149,7 +149,7 @@ type Type struct {
 	Crew       int8
 	CoreSlots  CoreSlotsSpec
 	Hardpoints [HugeWeapon + 1]int8
-	OptSlots   []OptSlots
+	OptSlots   []OptSlot
 	Fighter    bool
 }
 
@@ -168,24 +168,17 @@ func (st *Type) NewShip(reuse *Ship) *Ship {
 	return reuse
 }
 
-func (st *Type) OptSlot(idx int) *OptSlots {
-	sum := 0
+func (st *Type) OptSlot(id int) *OptSlot {
 	for i := range st.OptSlots {
 		def := &st.OptSlots[i]
-		sum += int(def.Count)
-		if idx < sum {
+		if int(def.ID) == id {
 			return def
 		}
 	}
 	return nil
 }
 
-func (st *Type) OptSlotNo() (res int) {
-	for _, s := range st.OptSlots {
-		res += int(s.Count)
-	}
-	return res
-}
+func (st *Type) OptSlotNo() (res int) { return len(st.OptSlots) }
 
 type TypeRef struct {
 	TypeName string

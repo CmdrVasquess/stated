@@ -2,11 +2,10 @@ package stated
 
 import (
 	"git.fractalqb.de/fractalqb/c4hgol"
-	"git.fractalqb.de/fractalqb/qbsllm"
-	"github.com/CmdrVasquess/watched"
+	"git.fractalqb.de/fractalqb/qblog"
 )
 
 var (
-	log    = qbsllm.New(qbsllm.Lnormal, "stated", nil, nil)
-	LogCfg = c4hgol.Config(qbsllm.NewConfig(log), watched.LogCfg())
+	log                     = qblog.New("stated")
+	LogCfg c4hgol.LogConfig = log
 )

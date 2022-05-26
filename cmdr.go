@@ -3,14 +3,14 @@ package stated
 import (
 	"encoding/json"
 
-	"github.com/fractalqb/change/chgv"
+	"github.com/fractalqb/change"
 )
 
 type Commander struct {
 	FID    string
-	Name   chgv.String
+	Name   change.Val[string]
 	Ranks  Ranks
-	ShipID chgv.Int
+	ShipID change.Val[int]
 	inShip *Ship
 }
 

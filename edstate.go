@@ -14,7 +14,6 @@ import (
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/watched"
 	"github.com/fractalqb/change"
-	"github.com/fractalqb/change/chgv"
 )
 
 type HandlerFunc func(*EDState, events.Event) change.Flags
@@ -33,7 +32,7 @@ const (
 
 func SaveJSON(file string, data interface{}, logTmpl string) error {
 	if logTmpl != "" {
-		log.Infoa(logTmpl, file)
+		log.Infov(logTmpl, file)
 	}
 	tmp := file + "~"
 	wr, err := os.Create(tmp)
@@ -55,12 +54,12 @@ func LoadJSON(file string, allowEmpty bool, into interface{}, logTmpl string) er
 		file = file + ".json"
 	}
 	if logTmpl != "" {
-		log.Infoa(logTmpl, file)
+		log.Infov(logTmpl, file)
 	}
 	rd, err := os.Open(file)
 	switch {
 	case allowEmpty && os.IsNotExist(err):
-		log.Warna("`file` not exists, skip loading", file)
+		log.Warnv("`file` not exists, skip loading", file)
 		return nil
 	case err != nil:
 		return err
@@ -152,12 +151,12 @@ var langMap = map[string]string{
 func ParseEDLang(edlang string) (lang, region string) {
 	split := strings.Split(edlang, "\\")
 	if len(split) != 2 {
-		log.Errora("cannot parse `language`", edlang)
+		log.Errorv("cannot parse `language`", edlang)
 		return "", ""
 	}
 	lang = langMap[split[0]]
 	if lang == "" {
-		log.Warna("unknown `language`", split[0])
+		log.Warnv("unknown `language`", split[0])
 		return "", ""
 	}
 	return lang, split[1]
@@ -182,7 +181,7 @@ func (ed *EDState) SwitchCommander(fid string, name string) error {
 		return err
 	}
 	if ed.Cmdr != nil && ed.Cmdr.FID == fid {
-		log.Tracea("skip switching to same `commander` with `FID`", name, fid)
+		log.Tracev("skip switching to same `commander` with `FID`", name, fid)
 	}
 	if ed.CmdrFile != nil {
 		err := LoadJSON(ed.CmdrFile(fid, name), true, ed, "load ED state from `file`")
@@ -194,7 +193,7 @@ func (ed *EDState) SwitchCommander(fid string, name string) error {
 	if ed.Cmdr == nil {
 		ed.Cmdr = &Commander{
 			FID:  fid,
-			Name: chgv.String(name),
+			Name: change.NewVal(name),
 		}
 	} else if ed.Cmdr.FID != fid {
 		err := sllm.Error("load `file with FID` for `FID`", ed.Cmdr.FID, fid)
@@ -270,12 +269,12 @@ func (ed *EDState) OnJournalEvent(e watched.JounalEvent) (err error) {
 	}
 	etype := events.EventType(event)
 	if etype == nil {
-		log.Debuga("unknown `journal event`", event)
+		log.Debugv("unknown `journal event`", event)
 		return nil
 	}
 	eh := evtHdlrs[event]
 	if eh == nil {
-		log.Debuga("no handler for `journal event`", event)
+		log.Debugv("no handler for `journal event`", event)
 		return nil
 	}
 	evt := etype.New()
@@ -290,7 +289,7 @@ func (ed *EDState) OnJournalEvent(e watched.JounalEvent) (err error) {
 func (ed *EDState) OnStatusEvent(e watched.StatusEvent) error {
 	etype := events.EventType(e.Type.String())
 	if etype == nil {
-		log.Debuga("unknown `status event`", e.Type.String())
+		log.Debugv("unknown `status event`", e.Type.String())
 		return nil
 	}
 	// TODO status event
@@ -306,9 +305,9 @@ func (ed *EDState) ntfChg(chg change.Flags, e events.Event) {
 	for i, c := range ed.Notify {
 		select {
 		case c <- ce:
-			log.Tracea("sent `change` to `listener`", chg, i)
+			log.Tracev("sent `change` to `listener`", chg, i)
 		default:
-			log.Tracea("drop `change` for blocking `listener`", chg, i)
+			log.Tracev("drop `change` for blocking `listener`", chg, i)
 		}
 	}
 }

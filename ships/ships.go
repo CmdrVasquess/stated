@@ -37,6 +37,7 @@ type CoreModulesSpec [FuelTank + 1]CoreModule
 
 type OptModule struct {
 	Module
+	Slot        int8
 	Type        string
 	Restriction OptSlotRestriction `json:",omitempty"`
 }
