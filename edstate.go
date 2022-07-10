@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"git.fractalqb.de/fractalqb/sllm"
+	"git.fractalqb.de/fractalqb/sllm/v2"
 
 	"github.com/CmdrVasquess/stated/events"
 	"github.com/CmdrVasquess/watched"
